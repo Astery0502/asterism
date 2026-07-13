@@ -1,0 +1,22 @@
+version: 1
+
+rule_catalog:
+  - id: route_binding
+    scope: node
+    meaning: node should be attached to one routing node
+
+  - id: file_as_node
+    scope: node
+    meaning: file can be promoted as first-class graph node
+
+  - id: parameter_propagation
+    scope: edge
+    meaning: parameter propagates across layers
+
+  - id: boolean_switch
+    scope: node_edge
+    meaning: parameter or variable controls branch activation
+
+  - id: control_flow_gate
+    scope: edge
+    meaning: edge is active only under a condition

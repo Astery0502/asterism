@@ -1,0 +1,12 @@
+version: 1
+
+nodes:
+  - id: root
+    path: .
+    kind: dir
+    stale: false
+    purpose: ""
+    enter_when: []
+    avoid_when: []
+    inspect_first: []
+    children: []

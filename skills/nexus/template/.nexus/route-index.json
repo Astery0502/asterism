@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "routes_ref": ".nexus/routes.yaml",
+  "impact_ref": ".nexus/impact.yaml",
+  "by_route_id": {},
+  "path_to_route_id": {},
+  "graph_node_to_route_id": {}
+}

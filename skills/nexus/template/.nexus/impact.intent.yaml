@@ -1,0 +1,94 @@
+# impact.intent.yaml
+#
+# Agent-authored intermediate layer for nexus impact graph compilation.
+# This file is NOT the final graph. It declares high-value node and edge intents
+# that will be compiled into `.nexus/impact.yaml`.
+#
+# Authoring format
+#
+# 1. node_intents
+#    - target: required
+#      Format: "relative/path/to/file.ext:SymbolName"
+#      Use repo-relative paths. Do not use leading "./".
+#      The file part is used for route_ref auto-resolution.
+#
+#    - kind: required
+#      Must match an id from `.nexus/impact-rules.yaml` with scope `node`
+#      or `node_edge`.
+#      Important: `kind` here means intent/rule category, NOT final graph node kind.
+#
+#    - route_ref: optional
+#      Should match an existing route id from `.nexus/routes.yaml`.
+#      If omitted, the compiler will try to resolve it from the file path.
+#
+#    - role: optional
+#      Short semantic label such as:
+#      entrypoint, dispatcher, setup_switch, implementation, bridge
+#
+# 2. edge_intents
+#    - from: required
+#      Same format as node_intents.target
+#
+#    - to: required
+#      Same format as node_intents.target
+#
+#    - type: required
+#      Must match an id from `.nexus/impact-rules.yaml` with scope `edge`
+#      or `node_edge`.
+#
+#    - when: optional
+#      Short activation condition, for example:
+#      "random_heating == true"
+#      "mode == 'gpu'"
+#
+# 3. aliases
+#    Optional name mapping when one semantic item appears under multiple names.
+#
+# Examples
+#
+# node_intents:
+#   - target: "simulation/simulation.par:random_heating"
+#     kind: boolean_switch
+#     route_ref: simulation.simulation_par
+#     role: setup_switch
+#
+#   - target: "simulation/run.sh"
+#     kind: file_as_node
+#     route_ref: simulation.run_sh
+#     role: launcher_file
+#
+#   - target: "simulation/run.sh:run_case"
+#     kind: route_binding
+#     route_ref: simulation.run_sh
+#     role: entrypoint
+#
+# edge_intents:
+#   - from: "simulation/simulation.par:random_heating"
+#     to: "simulation/run.sh:run_case"
+#     type: parameter_propagation
+#     when: "random_heating == true"
+#
+#   - from: "simulation/simulation.par:random_heating"
+#     to: "simulation/source_usr.F90:source_usr"
+#     type: control_flow_gate
+#     when: "random_heating == true"
+#
+# aliases:
+#   random_heating:
+#     - use_random_heating
+#     - heating_random
+#
+# Authoring rules
+#
+# - Use only high-value intents, not a full auto-extracted graph.
+# - Prefer explicit route_ref when known.
+# - Keep target/from/to exact and short.
+# - If a note cannot be resolved confidently, leave it for clarification.
+#
+version: 1
+
+node_intents: []
+
+edge_intents: []
+
+aliases: {}

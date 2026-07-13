@@ -1,0 +1,29 @@
+# exclude: glob patterns for paths to omit from route discovery entirely.
+# Supports ** for directory subtrees and * for single-level wildcards.
+exclude:
+  - ".git/**"
+  - ".venv/**"
+  - "node_modules/**"
+  - "*.pyc"
+  - "__pycache__/**"
+  - ".nexus/**"
+
+# pins: explicit file or directory paths to always include as route nodes,
+# regardless of glob_rules. Useful for files with non-standard extensions
+# or paths that would otherwise be excluded.
+# Example:
+#   pins:
+#     - "config/special.cfg"
+#     - "data/seeds/"
+pins: []
+
+# glob_rules: file patterns that qualify a file as a promoted route node.
+# Directories are always included as container nodes; only files matching
+# one of these patterns are promoted to first-class route nodes.
+glob_rules:
+  - "*.par"
+  - "*.py"
+  - "*.md"
+  - "*.yaml"
+  - "*.json"
+  - "*.sh"

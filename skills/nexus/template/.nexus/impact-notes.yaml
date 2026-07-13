@@ -1,0 +1,143 @@
+# impact-notes.yaml
+#
+# Human-authored notes layer for nexus impact graph construction.
+# This file is NOT the final graph and NOT the structured intent layer.
+# It stores natural-language observations, suspicions, and requested links
+# that may later be transformed into `.nexus/impact.intent.yaml`.
+#
+# Purpose
+#
+# - `pending` holds note blocks that still need transformation.
+# - `transformed` records which notes have already produced intents.
+#
+# Authoring rules
+#
+# - Write natural language in `text`.
+# - Keep each note focused on one local idea or one connection chain.
+# - Do not write final graph fields such as:
+#   `target`, `from`, `to`, `kind`, `type`, or `route_ref`.
+# - Do not try to write the final graph by hand here.
+# - Use optional hints only when they help disambiguate paths, symbols, or routes.
+#
+# Required structure
+#
+# pending:
+#   - note_id: "N-001"
+#     text: >
+#       Natural-language note text.
+#     route_hint: some_route_id
+#     file_hints:
+#       - relative/path/to/file.ext
+#     symbol_hints:
+#       - SymbolName
+#     tags:
+#       - control
+#       - propagation
+#
+# transformed:
+#   - note_id: "N-001"
+#     hint_ids:
+#       - H-001
+#       - H-002
+#     date: "2026-04-23"
+#
+# Field meanings
+#
+# pending entry:
+#   note_id:
+#     required
+#     stable unique id for the note block
+#
+#   text:
+#     required
+#     natural-language observation, suspicion, or requested relation
+#
+#   route_hint:
+#     optional
+#     suggested route id from `.nexus/routes.yaml`
+#     use only when you already know the likely routing branch
+#
+#   file_hints:
+#     optional
+#     repo-relative file paths that may help resolution
+#     do not use leading "./"
+#
+#   symbol_hints:
+#     optional
+#     likely symbols mentioned in the note
+#
+#   tags:
+#     optional
+#     short loose labels such as:
+#     - control
+#     - propagation
+#     - config
+#     - entrypoint
+#     - dispatcher
+#
+# transformed entry:
+#   note_id:
+#     required
+#     id of the original pending note
+#
+#   hint_ids:
+#     required
+#     ids of generated intents or transformation records
+#
+#   date:
+#     required
+#     transformation date in YYYY-MM-DD format
+#
+# Examples
+#
+# pending:
+#   - note_id: "N-001"
+#     text: >
+#       random_heating in simulation.par controls whether source_usr uses
+#       random_heating(). This probably links the parameter file, the dispatcher,
+#       and the heating implementation.
+#     route_hint: simulation
+#     file_hints:
+#       - simulation/simulation.par
+#       - src/source/source_usr.F90
+#       - src/source/random_heating.F90
+#     symbol_hints:
+#       - random_heating
+#       - source_usr
+#     tags:
+#       - control
+#       - propagation
+#
+#   - note_id: "N-002"
+#     text: >
+#       run.sh looks like an execution entry. It may need a file node and an
+#       entrypoint function if one is clearly identifiable.
+#     file_hints:
+#       - simulation/run.sh
+#     tags:
+#       - entrypoint
+#
+# transformed:
+#   - note_id: "N-000"
+#     hint_ids:
+#       - H-010
+#       - H-011
+#     date: "2026-04-23"
+#
+# Writing guidance
+#
+# - Good note:
+#   "random_heating in simulation.par controls whether source_usr uses
+#    random_heating()."
+#
+# - Bad note:
+#   "target: simulation/simulation.par:random_heating"
+#   "type: parameter_propagation"
+#
+# Keep notes human-facing and local. Let Step B convert them into structured
+# node_intents and edge_intents.
+version: 1
+
+pending: []
+
+transformed: []

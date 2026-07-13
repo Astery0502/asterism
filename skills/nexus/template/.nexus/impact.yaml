@@ -1,0 +1,12 @@
+version: 1
+
+graph_meta:
+  compiler: scripts/sync_impact_graph.py
+  generated_from:
+    - .nexus/routes.yaml
+    - .nexus/impact.intent.yaml
+  route_index_ref: .nexus/route-index.json
+
+route_index: []
+nodes: []
+edges: []
