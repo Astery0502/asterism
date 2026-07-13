@@ -4,7 +4,6 @@ Portions of the following skills are locally modified adaptations of work from [
 
 - `skills/brainstorming/`
 - `skills/writing-plans/`
-- `skills/writing-skills/`
 
 The adaptations are maintained locally. They are not automatically compared with or overwritten from upstream; upstream changes require intentional manual review.
 

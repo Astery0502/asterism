@@ -10,7 +10,6 @@ A small, content-first collection of agent skills installed with the [`skills`](
 - **phase-frames** - Turns an approved specification into fixed, ordered implementation phase frames.
 - **simplify** - Reviews changed code for reuse, quality, and efficiency, then fixes issues found.
 - **writing-plans** - Produces a comprehensive, task-by-task implementation plan from an approved specification.
-- **writing-skills** - Creates, edits, and verifies reusable agent skills with a test-driven workflow.
 
 ## Install
 
