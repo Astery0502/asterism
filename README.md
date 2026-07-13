@@ -17,13 +17,13 @@ A small, content-first collection of agent skills installed with the [`skills`](
 Choose skills and installation targets interactively:
 
 ```bash
-npx skills@latest add astery/asterism
+npx skills@latest add Astery0502/asterism
 ```
 
 To install every skill globally for Codex and Claude Code without prompts:
 
 ```bash
-npx skills@latest add astery/asterism \
+npx skills@latest add Astery0502/asterism \
   --global \
   --skill '*' \
   --agent codex claude-code \
