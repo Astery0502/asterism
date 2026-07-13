@@ -1,7 +1,8 @@
 ---
 name: phase-frames
 description: >
-  Use when the user explicitly asks to turn an approved spec, design doc, or requirements document into implementation phase frames. LOAD ONLY when the user explicitly invokes /phase-frames. Do not auto-load for any other reason.
+  Turns an approved specification into fixed, ordered implementation phase frames.
+disable-model-invocation: true
 ---
 
 # Phase Frames

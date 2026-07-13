@@ -2,7 +2,7 @@
 name: simplify
 description: >
   Review changed code for reuse, quality, and efficiency, then fix any issues found.
-  LOAD ONLY when the user explicitly invokes /simplify. Do not auto-load for any other reason.
+disable-model-invocation: true
 ---
 
 # Simplify: Code Review and Cleanup

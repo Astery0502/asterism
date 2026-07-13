@@ -2,19 +2,21 @@
 """Extract a built-in slash command prompt from the Claude Code CLI bundle.
 
 Usage:
-    python3 extract-builtin-prompt.py [marker]
+    python3 extract-builtin-prompt.py BUNDLE [--marker MARKER]
 
-    marker  The heading that starts the prompt (default: "# Simplify: Code Review and Cleanup")
+    BUNDLE  Path to the Claude Code CLI bundle.
+    MARKER  Heading that starts the prompt (default: "# Simplify: Code Review and Cleanup").
 
 Example:
-    python3 extract-builtin-prompt.py
-    python3 extract-builtin-prompt.py "# Simplify"
+    python3 extract-builtin-prompt.py /path/to/claude-code/cli.js
+    python3 extract-builtin-prompt.py /path/to/claude-code/cli.js --marker "# Simplify"
 """
 
+import argparse
 import re
 import sys
+from typing import Optional
 
-CLI = "/usr/local/lib/node_modules/@anthropic-ai/claude-code/cli.js"
 DEFAULT_MARKER = "# Simplify: Code Review and Cleanup"
 
 
@@ -40,6 +42,19 @@ def extract(path: str, marker: str) -> str:
     return re.sub(r"\\(.)", lambda m: m.group(1), raw)
 
 
+def main(argv: Optional[list[str]] = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("bundle", help="path to the Claude Code CLI bundle")
+    parser.add_argument("--marker", default=DEFAULT_MARKER, help="prompt heading to extract")
+    args = parser.parse_args(argv)
+
+    try:
+        print(extract(args.bundle, args.marker))
+    except (OSError, ValueError) as error:
+        print(f"error: {error}", file=sys.stderr)
+        return 1
+    return 0
+
+
 if __name__ == "__main__":
-    marker = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_MARKER
-    print(extract(CLI, marker))
+    raise SystemExit(main())

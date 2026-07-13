@@ -2,7 +2,7 @@
 name: brainstorming
 description: >
   Explores user intent, requirements, and design before implementation.
-  LOAD ONLY when the user explicitly invokes /brainstorming. Do not auto-load for any other reason.
+disable-model-invocation: true
 ---
 
 # Brainstorming Ideas Into Designs
@@ -27,7 +27,7 @@ You MUST create a task for each of these items and complete them in order:
 2. **Ask clarifying questions** — one at a time, understand purpose/constraints/success criteria
 3. **Propose 2-3 approaches** — with trade-offs and your recommendation
 4. **Present design** — in sections scaled to their complexity, get user approval after each section
-5. **Write design doc** — save to `docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md` and commit
+5. **Write design doc** — save to `docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md`
 6. **Spec self-review** — quick inline check for placeholders, contradictions, ambiguity, scope (see below)
 7. **User reviews written spec** — ask user to review the spec file before proceeding
 8. **Brainstorming complete** — the approved spec is ready; present it to the user as the artifact for the next step
@@ -59,7 +59,7 @@ digraph brainstorming {
 }
 ```
 
-**The terminal state is the user-approved spec.** Brainstorming ends when the spec is committed and the user has approved it. Do not prescribe which implementation skill runs next.
+**The terminal state is the saved, user-approved spec.** Do not prescribe which implementation skill runs next. Commit, push, or publish only when the user explicitly authorizes that repository mutation.
 
 ## The Process
 
@@ -106,7 +106,7 @@ digraph brainstorming {
 
 - Write the validated design (spec) to `docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md`
   - (User preferences for spec location override this default)
-- Commit the design document to git
+- Do not commit, push, or publish the design document without explicit user authorization
 
 **Spec Self-Review:**
 After writing the spec document, look at it with fresh eyes:
@@ -121,7 +121,7 @@ Fix any issues inline. No need to re-review — just fix and move on.
 **User Review Gate:**
 After the spec review loop passes, ask the user to review the written spec before proceeding:
 
-> "Spec written and committed to `<path>`. Please review it and let me know if you want to make any changes before we move on."
+> "Spec written to `<path>`. Please review it and let me know if you want to make any changes before we move on."
 
 Wait for the user's response. If they request changes, make them and re-run the spec review loop. Once the user approves, brainstorming is complete — hand the spec path back to the user and stop.
 
@@ -133,4 +133,3 @@ Wait for the user's response. If they request changes, make them and re-run the 
 - **Explore alternatives** - Always propose 2-3 approaches before settling
 - **Incremental validation** - Present design, get approval before moving on
 - **Be flexible** - Go back and clarify when something doesn't make sense
-

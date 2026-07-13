@@ -1,9 +1,8 @@
 ---
 name: intake
 description: >
-  Use when a user explicitly invokes /intake for a rough, unclear, under-structured,
-  or role-ambiguous request before any downstream work begins.
-  LOAD ONLY when the user explicitly invokes /intake. Do not auto-load for any other reason.
+  Refines a rough or under-structured request into a clear downstream prompt.
+disable-model-invocation: true
 ---
 
 # Intake

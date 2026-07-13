@@ -1,0 +1,7 @@
+interface:
+  display_name: "Intake"
+  short_description: "Turn a rough request into a stronger prompt"
+  default_prompt: "Use $intake to refine this request into a clear downstream prompt."
+
+policy:
+  allow_implicit_invocation: false

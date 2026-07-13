@@ -42,7 +42,9 @@ Each public skill is one direct child of `skills/` and must contain a `SKILL.md`
 Run local validation from the repository root:
 
 ```bash
-node --test scripts/validate-skills.test.mjs
-node scripts/validate-skills.mjs
+npm ci
+npm test
+npm run validate
+python3 skills/simplify/references/test_extract_builtin_prompt.py
 for test_file in skills/nexus/tests/test-*.sh; do bash "$test_file"; done
 ```

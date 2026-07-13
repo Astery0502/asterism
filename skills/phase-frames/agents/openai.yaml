@@ -1,0 +1,7 @@
+interface:
+  display_name: "Phase Frames"
+  short_description: "Frame an approved spec into ordered phases"
+  default_prompt: "Use $phase-frames to add ordered implementation phases to this approved specification."
+
+policy:
+  allow_implicit_invocation: false

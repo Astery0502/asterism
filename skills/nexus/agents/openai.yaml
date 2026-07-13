@@ -1,0 +1,7 @@
+interface:
+  display_name: "Nexus"
+  short_description: "Maintain repository routes and impact mappings"
+  default_prompt: "Use $nexus to scaffold or synchronize this repository's route and impact map."
+
+policy:
+  allow_implicit_invocation: false

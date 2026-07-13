@@ -2,7 +2,7 @@
 name: nexus
 description: >
   Scaffold or sync the .nexus/ route-and-impact system.
-  LOAD ONLY when the user explicitly invokes /nexus. Do not auto-load for any other reason.
+disable-model-invocation: true
 ---
 
 # Nexus
@@ -45,6 +45,8 @@ When exactness is missing, produce no candidate for that note. Leaving a note in
 
 Run the status check first:
 
+Status helper: [nexus_status.py](scripts/nexus_status.py)
+
 ```bash
 python <skill_dir>/scripts/nexus_status.py --target <repo_root>
 ```
@@ -73,6 +75,8 @@ Read the `STATE` line and branch:
 - `.nexus/scripts/sync_impact_graph.py`
 
 ## Mode 1 — Setup
+
+Setup helper: [nexus_install.py](scripts/nexus_install.py)
 
 If `STATE: partial`, the status script already printed `WILL_CREATE` /
 `WILL_SKIP` lines — show these to the user and ask for confirmation before

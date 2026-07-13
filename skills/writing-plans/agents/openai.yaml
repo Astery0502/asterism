@@ -1,0 +1,7 @@
+interface:
+  display_name: "Writing Plans"
+  short_description: "Turn an approved spec into an execution plan"
+  default_prompt: "Use $writing-plans to turn this approved specification into an implementation plan."
+
+policy:
+  allow_implicit_invocation: false
