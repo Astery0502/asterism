@@ -1,0 +1,7 @@
+interface:
+  display_name: "Scientific Investigation Injector"
+  short_description: "Scaffold a prototype-first scientific investigation"
+  default_prompt: "Use $scientific-investigation-injector to create a self-contained scientific investigation under this project."
+
+policy:
+  allow_implicit_invocation: false

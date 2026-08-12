@@ -1,0 +1,17 @@
+schema_version = 1
+investigation = "<investigation-id>"
+
+[[products]]
+id = "<stable-output-id>"
+title = "<human-readable title>"
+kind = "figure"
+owner = "<investigation-id>"
+status = "working"
+paths = ["figures/<name>.png"]
+inputs = ["<input-output-id or compact source identity>"]
+generation = "<command, notebook entry point, or manual procedure>"
+scientific_role = "<question, claim, or comparison this output serves>"
+checks = ["<scientific-spine check or inspection evidence>"]
+interpretation = "<progress checkpoint or artifact path>"
+retention = "tracked | preserve | external | rebuildable | temporary"
+limitations = ["<material limitation>"]

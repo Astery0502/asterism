@@ -4,12 +4,8 @@ A small, content-first collection of agent skills installed with the [`skills`](
 
 ## Included skills
 
-- **brainstorming** - Explores user intent, requirements, and design before implementation.
-- **intake** - Refines an explicitly submitted rough or under-structured request before downstream work.
-- **nexus** - Scaffolds or synchronizes a repository's `.nexus/` route-and-impact system.
-- **phase-frames** - Turns an approved specification into fixed, ordered implementation phase frames.
+- **scientific-investigation-injector** - Creates durable, prototype-first infrastructure for consequential scientific investigations.
 - **simplify** - Reviews changed code for reuse, quality, and efficiency, then fixes issues found.
-- **writing-plans** - Produces a comprehensive, task-by-task implementation plan from an approved specification.
 
 ## Install
 
@@ -37,7 +33,7 @@ npx skills@latest update --global
 
 ## Contributing
 
-Each public skill is one direct child of `skills/` and must contain a `SKILL.md`. Keep a skill's scripts, references, templates, fixtures, and tests inside that skill directory.
+Each public skill is one direct child of `skills/` and must contain a `SKILL.md`. Keep a skill's scripts, references, assets, fixtures, and tests inside that skill directory.
 
 Run local validation from the repository root:
 
@@ -45,6 +41,4 @@ Run local validation from the repository root:
 npm ci
 npm test
 npm run validate
-python3 skills/simplify/references/test_extract_builtin_prompt.py
-for test_file in skills/nexus/tests/test-*.sh; do bash "$test_file"; done
 ```

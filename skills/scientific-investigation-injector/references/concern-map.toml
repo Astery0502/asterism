@@ -1,0 +1,52 @@
+schema_version = 1
+
+# Source-side map for injection and migration. Do not copy it into an
+# investigation or expose these IDs in ordinary runtime prose.
+
+[[concerns]]
+id = "SCI-PROTOTYPE-FIRST"
+default_destinations = ["AGENTS.md", "CHARTER.md", "PROGRESS.md"]
+
+[[concerns]]
+id = "SCI-SCIENCE-FIRST"
+default_destinations = ["CHARTER.md", "PROGRESS.md", "REVIEW.md"]
+
+[[concerns]]
+id = "SCI-INQUIRY-FREEDOM"
+default_destinations = ["AGENTS.md"]
+
+[[concerns]]
+id = "SCI-EVIDENCE-STATUS"
+default_destinations = ["AGENTS.md", "PROGRESS.md", "REVIEW.md"]
+
+[[concerns]]
+id = "SCI-MEANING-PRESERVATION"
+default_destinations = ["AGENTS.md", "CHARTER.md", "CONTRACTS.md"]
+
+[[concerns]]
+id = "SCI-OUTPUT-REGISTRATION"
+default_destinations = ["AGENTS.md", "PRODUCTS.toml", "PROGRESS.md"]
+
+[[concerns]]
+id = "SCI-SPINE-TESTING"
+default_destinations = ["AGENTS.md", "PRODUCTS.toml", "PROGRESS.md"]
+
+[[concerns]]
+id = "SCI-DURABLE-MEMORY"
+default_destinations = ["AGENTS.md", "PROGRESS.md", "REVIEW.md"]
+
+[[concerns]]
+id = "SCI-GOAL-INTEGRITY"
+default_destinations = ["AGENTS.md", "CHARTER.md", "PROGRESS.md"]
+
+[[concerns]]
+id = "SCI-REVIEW-OUTCOMES"
+default_destinations = ["REVIEW.md"]
+
+[[concerns]]
+id = "SCI-VERSION-PROVENANCE"
+default_destinations = ["AGENTS.md"]
+
+[[concerns]]
+id = "SCI-PROPORTIONAL-ESCALATION"
+default_destinations = ["CHARTER.md", "CONTRACTS.md", "PHASES.md"]
