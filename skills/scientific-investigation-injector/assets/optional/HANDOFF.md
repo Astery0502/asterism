@@ -9,11 +9,14 @@ The producing investigation remains authoritative for its history.
 - **Receiving investigation:**
 - **Handoff date:**
 
-## Exact outputs transferred
+## Exact products transferred
 
-| Output ID | Path or location | Status | Identity or checksum |
-| --- | --- | --- | --- |
-| `<output-id>` | <location> | <status> | <identity> |
+Resolve current paths, status, and retention from the producer's
+`PRODUCTS.toml`; do not duplicate them here.
+
+| Product ID | Identity or checksum at handoff |
+| --- | --- |
+| `<product-id>` | <identity> |
 
 ## Supported scientific statements
 
@@ -27,7 +30,7 @@ The producing investigation remains authoritative for its history.
 
 - <Material limitation or uncertainty.>
 
-## Permitted continuation
+## Supported continuation
 
 <Scientific work supported by the transferred result.>
 

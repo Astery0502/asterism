@@ -1,46 +1,17 @@
-# Scientific Contracts
+# Working Scientific Contracts
 
-Create one section for each scientific meaning that must remain stable across
-more than one prototype or agent. Remove unused prompts.
+Record only investigation-derived claims or local conventions whose reuse across
+prototypes or agents could materially change interpretation. They are
+provisional coordination devices, not accepted basis, direct evidence, or
+established truth. Challenge or reject them when evidence warrants it; represent
+a substantive meaning change with a new contract that supersedes the old one.
+Record the disposition in `PROGRESS.md` without silently rewriting history.
 
-## `<contract-id>` — <protected meaning>
+## `<contract-id>` — <statement or convention>
 
-### Scientific role
-
-<Why changing this meaning could alter a scientific conclusion.>
-
-### Accepted inputs and prohibited substitutions
-
-<Authoritative inputs and replacements that would change their meaning.>
-
-### Assumptions and valid regime
-
-<Conditions under which the contract applies.>
-
-### Conventions
-
-- Units and normalization:
-- Coordinates, frame, and orientation:
-- Components, ordering, and sign conventions:
-- Time or observation convention:
-- Transformations and projections:
-
-### Missing, masked, and invalid data
-
-<Meaning and permitted handling of absent or invalid values.>
-
-### Uncertainty and limitations
-
-<Uncertainty carried by this contract and interpretations it does not support.>
-
-### Scientific-spine checks
-
-- <Smallest check that detects a scientifically material violation.>
-
-### Affected prototype outputs
-
-- `<output-id>`
-
-### Change rule
-
-<Evidence and Progress update required before this contract may change.>
+- **Status:** working / challenged / superseded / rejected
+- **Basis and scope:** <why it is currently useful and where it applies>
+- **Smallest material check:** <evidence that could challenge the claim or
+  reveal a convention mismatch>
+- **Affected products, if any:** `<product-id>`
+- **Supersedes, if any:** `<prior-contract-id>`

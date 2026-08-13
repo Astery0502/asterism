@@ -16,15 +16,16 @@ Keep exactly one outcome and remove the other choices:
 
 ## Main scientific contribution
 
-<What understanding, negative result, or useful output emerged?>
+<What understanding, negative result, or useful product emerged?>
 
 ## Credibility of the central conclusions
 
 <What supports them, what assumptions matter, and how strong is the evidence?>
 
-## Prototype and output disposition
+## Prototype, contract, and product disposition
 
-<Which prototypes and outputs were checked, rejected, superseded, or remain unresolved?>
+<Which prototypes, working contracts, and products were checked, challenged,
+rejected, superseded, or remain unresolved?>
 
 ## Scientific fertility
 

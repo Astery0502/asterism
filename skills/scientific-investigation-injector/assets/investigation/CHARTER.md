@@ -4,13 +4,9 @@
 
 <What understanding is sought and why it matters.>
 
-## Current governing question
+## Governing question
 
 <The best current formulation of the question.>
-
-## Current prototype
-
-<The smallest direct scientific instrument for this question.>
 
 ## Success signals
 
@@ -18,7 +14,9 @@
 
 ## Scope and accepted basis
 
-<Sources, assumptions, systems, data, and boundaries in scope.>
+<Inherited authority, source-backed meaning, accepted assumptions, systems,
+data, and boundaries. Keep investigation-derived provisional claims in
+`PROGRESS.md` or `CONTRACTS.md`, not here.>
 
 ## Competing explanations or contrasts
 
@@ -31,10 +29,6 @@
 ## Essential constraints
 
 <Only constraints needed for science, safety, or source integrity.>
-
-## Active gate
-
-<Question, evidence, and dispositions; remove when no gate is needed.>
 
 ## Review question
 

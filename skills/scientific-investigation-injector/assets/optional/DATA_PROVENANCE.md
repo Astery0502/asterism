@@ -5,7 +5,7 @@ acquisition materially affects a prototype.
 
 ## `<source-id>` — <source title>
 
-- **Scientific role:** <what question or output uses this source>
+- **Scientific role:** <what question or product uses this source>
 - **Owner or authority:** <authoritative provider>
 - **Selector:** <dataset, object, region, time, version, or query>
 - **Acquisition route and date:** <reproducible route>
@@ -14,7 +14,6 @@ acquisition materially affects a prototype.
 - **Calibration and quality:** <calibration, flags, masks, uncertainty>
 - **Missing or invalid data:** <meaning and handling>
 - **Local location:** <path or external storage reference>
-- **Registered derivatives:** <prototype-output identifiers>
 - **Known limitations:** <restrictions on interpretation>
 
 Do not include credentials or secret access material.

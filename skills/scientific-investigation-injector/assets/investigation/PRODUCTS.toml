@@ -1,17 +1,22 @@
 schema_version = 1
 investigation = "<investigation-id>"
 
+# Sole investigation-local registry for generated scientific products.
+
 [[products]]
-id = "<stable-output-id>"
+id = "<stable-product-id>"
 title = "<human-readable title>"
 kind = "figure"
-owner = "<investigation-id>"
 status = "working"
 paths = ["figures/<name>.png"]
-inputs = ["<input-output-id or compact source identity>"]
+# Prefix each dependency with product:, source:, or identity:.
+inputs = ["source:<id>"]
 generation = "<command, notebook entry point, or manual procedure>"
-scientific_role = "<question, claim, or comparison this output serves>"
-checks = ["<scientific-spine check or inspection evidence>"]
-interpretation = "<progress checkpoint or artifact path>"
+scientific_role = "<question, claim, or comparison this product serves>"
 retention = "tracked | preserve | external | rebuildable | temporary"
-limitations = ["<material limitation>"]
+
+# Add only when material:
+# checks = ["<scientific-spine check or inspection evidence>"]
+# interpretation = "<progress checkpoint or artifact path>"
+# limitations = ["<material limitation>"]
+# supersedes = "<prior-product-id>"
