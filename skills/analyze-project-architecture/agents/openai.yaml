@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Architecture Analysis"
+  short_description: "Understand and review repository concept boundaries"
+  default_prompt: "Use $analyze-project-architecture to explain and review this repository through its semantic lifecycle."

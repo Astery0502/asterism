@@ -4,6 +4,7 @@ A small, content-first collection of agent skills installed with the [`skills`](
 
 ## Included skills
 
+- **analyze-project-architecture** - Reconstructs and reviews repository architecture through its semantic lifecycle.
 - **scientific-investigation-injector** - Creates durable, prototype-first infrastructure for consequential scientific investigations.
 - **scientific-representation** - Turns scientific source material and presentation direction into an interactive, validated Scientific HTML representation.
 - **simplify** - Reviews changed code for reuse, quality, and efficiency, then fixes issues found.
