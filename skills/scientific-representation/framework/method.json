@@ -1,0 +1,45 @@
+{
+  "schema_version": 3,
+  "method_id": "claim-centered-scientific-representation-v1",
+  "purpose": "Coordinate Agent-owned scientific inquiry, representation inquiry, target realization, application conformance, and scientific review through stable handoffs.",
+  "principles": "framework/PRINCIPLES.md",
+  "pipeline": "framework/pipeline.json",
+  "handoff": {
+    "artifact": "TheoreticalAccount",
+    "producer": "scientific_inquiry",
+    "consumer": "representation_inquiry"
+  },
+  "entry_modes": [
+    {
+      "id": "account_available",
+      "start_module": "representation_inquiry",
+      "input": ["TheoreticalAccount", "PresentationInquirySeed"]
+    },
+    {
+      "id": "analysis_needed",
+      "start_module": "scientific_inquiry",
+      "input": ["ScientificInput", "AnalysisQuestion", "PresentationInquirySeed"]
+    },
+    {
+      "id": "requirements_available",
+      "start_module": "target_realization",
+      "input": ["TheoreticalAccount", "RepresentationRequirementsPackage", "TargetCapabilityCatalog", "RuntimeCapabilityObservation", "TargetPlanContract", "ApplicationArtifactContract"]
+    },
+    {
+      "id": "plan_available",
+      "start_module": "application_conformance",
+      "input": ["TheoreticalAccount", "RepresentationRequirementsPackage", "TargetNativeDecisionPlan", "ApplicationArtifactContract"]
+    },
+    {
+      "id": "application_available",
+      "start_module": "scientific_review",
+      "input": ["TheoreticalAccount", "RepresentationRequirementsPackage", "TargetNativeDecisionPlan", "ApplicationExecutionRecord", "ApplicationArtifact", "ApplicationManifest", "MechanicalEvidence", "MechanicalConformanceRecord"]
+    }
+  ],
+  "realization_branch": {
+    "resume_artifact": "RepresentationRequirementsPackage",
+    "module": "target_realization",
+    "default_target": "scientific-html",
+    "output": "TargetNativeDecisionPlan"
+  }
+}

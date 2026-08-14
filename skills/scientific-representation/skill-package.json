@@ -1,0 +1,401 @@
+{
+  "compatibility": {
+    "execution_model": "continuous-host-agent",
+    "framework_contract": "portable-representation-v1",
+    "method_id": "claim-centered-scientific-representation-v1",
+    "pipeline_contract": "scientific-representation-pipeline-v3",
+    "result_model": "final-work-product",
+    "skill_interface_schema": 2
+  },
+  "files": {
+    "SKILL.md": {
+      "sha256": "c1abfc73d702a047cbe1a2efa6d2a1d31713acdb45cc317c4c0fea9ef879c97f",
+      "size": 2506
+    },
+    "agents/openai.yaml": {
+      "sha256": "55632a82db74c8a4fd35a83706fb3264ab144dfa96c98f35f86eba1414fbe769",
+      "size": 316
+    },
+    "cases/catalog.json": {
+      "sha256": "504c998fb4553a3fa205262032547d00acfe7029c056bdc59583693462f755da",
+      "size": 41
+    },
+    "framework.json": {
+      "sha256": "faabb0fdf6edcb7507d8dc8f4732b1faf048cc19dbba7ddcc91cf52344141139",
+      "size": 1515
+    },
+    "framework/PRINCIPLES.md": {
+      "sha256": "95f3b7c94d52fd777b61e48890e1e28edd8ec6982ef35611fe4a7648f6b18158",
+      "size": 2750
+    },
+    "framework/handoffs/README.md": {
+      "sha256": "1963c8bd527a54ffd7757f565e2d277633e6283c4413ce02890604c275b5575a",
+      "size": 953
+    },
+    "framework/method.json": {
+      "sha256": "5b1f6496374329730d5bcac6743c93796964de0076b8699d798c305244c48293",
+      "size": 1878
+    },
+    "framework/modules/application-conformance/MODULE.md": {
+      "sha256": "786a8a3157735d010619e7af3ae2a801713740bfcf40a41f8c8df825530a9921",
+      "size": 2066
+    },
+    "framework/modules/application-conformance/contract.json": {
+      "sha256": "0cfa78cda7ab816af093911f885065e323bc4a2088bb39f6389ce9408ef7a7e3",
+      "size": 1301
+    },
+    "framework/modules/representation-inquiry/MODULE.md": {
+      "sha256": "a3b67d2f71214647fc02149842006e8c5e381c2c33a0a6a83a2afba205edd0a6",
+      "size": 4077
+    },
+    "framework/modules/representation-inquiry/contract.json": {
+      "sha256": "c2b8344ba29528a90025453c7e19fdbdee2c7512063f1b9255760831cb289067",
+      "size": 1723
+    },
+    "framework/modules/scientific-inquiry/MODULE.md": {
+      "sha256": "e14bc31e1bd35e37d03a68329eab21b56bdec58733b45aa512144377ee64d64a",
+      "size": 11753
+    },
+    "framework/modules/scientific-inquiry/contract.json": {
+      "sha256": "13828e294eb430053c57ce0e078eb7cee944e950a211f4605052186c2057b110",
+      "size": 2005
+    },
+    "framework/modules/scientific-review/MODULE.md": {
+      "sha256": "5151bbf4793b37df2a92e07d19771257ae38dc7c539fd9e199590f4f471ab633",
+      "size": 2064
+    },
+    "framework/modules/scientific-review/contract.json": {
+      "sha256": "6421b2fe26585d6aa6a326c2fb9ddf31bc91dc1c615ac2d1536c2e64d6466d41",
+      "size": 1562
+    },
+    "framework/modules/target-realization/MODULE.md": {
+      "sha256": "3072edbd41c1cfa6a96040ff46c10f3a9a2f7d077a51b41566739947851d53e3",
+      "size": 2139
+    },
+    "framework/modules/target-realization/contract.json": {
+      "sha256": "7637bd12f853b9d35dedc7e03d0e44f649f18e7e1ed714e3b6e67f1c0af2cac2",
+      "size": 912
+    },
+    "framework/pipeline.json": {
+      "sha256": "dea3af3c8adde07ab308605c665ad86eda49bb2a4dfbb3f05bac8b895b049c80",
+      "size": 3880
+    },
+    "pyproject.toml": {
+      "sha256": "ec0e80b4a5924cfbee7960bb9ebca7962759094a1fb6180ce9bc3282d4d95b21",
+      "size": 445
+    },
+    "scientific-representation.py": {
+      "sha256": "2fd8610b45b3604b2b89d7d91a4bd0f3c90d6de1db2f266c8225147c294a50f4",
+      "size": 340
+    },
+    "skill-interface.json": {
+      "sha256": "70beb7156704083f803f6aac21f07f98eb9877bc8bb340fdab505f6a56d3c96b",
+      "size": 493
+    },
+    "src/scientific_representation/__init__.py": {
+      "sha256": "fe8bc0edb767764163b35118254749058efdf349c97ebfd893e7acc43f40aaee",
+      "size": 326
+    },
+    "src/scientific_representation/app.py": {
+      "sha256": "b321a13aca2fb6c3d7468dff7d502159d08d217df89277f46078f743b26ba8be",
+      "size": 164
+    },
+    "src/scientific_representation/architecture.py": {
+      "sha256": "000df80c368461e9c2eb9495beb79c5b2dc6752a31540eff7e2482616897264c",
+      "size": 191
+    },
+    "src/scientific_representation/catalog.py": {
+      "sha256": "bf2de5642afeb7a3b514fb78217cd561ffe774f0242744e9f1c07cff6a41df89",
+      "size": 196
+    },
+    "src/scientific_representation/cli.py": {
+      "sha256": "118f4c3e56fc388dc2fd8c62b5cbe4969ba55dac9eb683282818ac460e4c3fe4",
+      "size": 17558
+    },
+    "src/scientific_representation/domain/__init__.py": {
+      "sha256": "3ac4f48951043968175c8c8732360a8197b6deee52d61d30a9e83633ab99145e",
+      "size": 1167
+    },
+    "src/scientific_representation/domain/errors.py": {
+      "sha256": "7eb6ae777e1c3f1b6dd782f0985f1dc8785819b7b5041dd71023f9b2452fd67f",
+      "size": 140
+    },
+    "src/scientific_representation/domain/findings.py": {
+      "sha256": "b802cc60f62d028b0e61fd9091b81d93e8afe81bf34a843bac6389bf44bbc6d8",
+      "size": 374
+    },
+    "src/scientific_representation/domain/handoffs.py": {
+      "sha256": "cde80ad9f2cdc140c1cdadd2ed709e5a8fdac9c119a88a8bc3d59458773df76b",
+      "size": 4819
+    },
+    "src/scientific_representation/domain/method.py": {
+      "sha256": "86ab46df67b839a99ebdf81526c81e3d9b90fc6870f8a12b4bc5bb8a2da49db7",
+      "size": 2715
+    },
+    "src/scientific_representation/domain/representation.py": {
+      "sha256": "0e5cc853dcdd236f8fe40f89a89a51513c68e3af84e8edff4264c0157460bde3",
+      "size": 3043
+    },
+    "src/scientific_representation/domain/requests.py": {
+      "sha256": "ecad277bc207613eaf4022041e7851a5f3598f96642e692c8d7c914dbf942e30",
+      "size": 2693
+    },
+    "src/scientific_representation/domain/review.py": {
+      "sha256": "e222fd40ef79d75baf5800f76e94eecf1ba00ba483ce5ae1df920d7cda22bd9c",
+      "size": 854
+    },
+    "src/scientific_representation/domain/status.py": {
+      "sha256": "4666441f398b9559c65148e711a409ed3792da9ccc6c80b911e5e7d05050e570",
+      "size": 1800
+    },
+    "src/scientific_representation/models.py": {
+      "sha256": "cf3b3c4d6aeffa6ee5e66f20e48a3dac0f2a32878c52c25f1e6ed3d8e02f624e",
+      "size": 819
+    },
+    "src/scientific_representation/ports/__init__.py": {
+      "sha256": "d9c9ac739d2a9044c85a710d553d555e4c1cdad7ee17d828383fa618f6e84658",
+      "size": 882
+    },
+    "src/scientific_representation/ports/scientific_agent.py": {
+      "sha256": "8964c42f41fe0b1b6d335f6734753b5cd3a90a50d2e16e33b7744ad52f9b15dd",
+      "size": 988
+    },
+    "src/scientific_representation/ports/scientific_review.py": {
+      "sha256": "18d952bf2bc5cc6e663eef92798a7510ec17f2e6dc067d351313df3cb332c95e",
+      "size": 427
+    },
+    "src/scientific_representation/ports/target_realizer.py": {
+      "sha256": "d117b9e1f5a97414e2a1379b713dfd557ac644fc76c95f0eb462d6fde7c112ab",
+      "size": 3198
+    },
+    "src/scientific_representation/providers/__init__.py": {
+      "sha256": "696fe83835c1fc33fcc04b23c49a08977dbd5019c828f213ba9809849c27e083",
+      "size": 455
+    },
+    "src/scientific_representation/providers/base.py": {
+      "sha256": "11418e0e29ea7248a6afaeb3253546f06f19e91f076e3282793cde2e7878b222",
+      "size": 444
+    },
+    "src/scientific_representation/runtime/__init__.py": {
+      "sha256": "2f9c41f00640e956ec8d91cbf0dbec81d5028f578b33c5bd4347fe4da2e88afe",
+      "size": 1040
+    },
+    "src/scientific_representation/runtime/architecture.py": {
+      "sha256": "20fe77f959bfcd0172ddca87f85d0d902c289f674b1ba3d21f34e31652af30e3",
+      "size": 4799
+    },
+    "src/scientific_representation/runtime/case_registry.py": {
+      "sha256": "99fc8286c39286e2254ce253cb6896cae54c53a2077ad4baa0da24f71bfed56b",
+      "size": 1506
+    },
+    "src/scientific_representation/runtime/catalog.py": {
+      "sha256": "75da16ffa7c1310cd3b6ae15dfac979645c550a55847a03ab5250ca0c484b223",
+      "size": 230
+    },
+    "src/scientific_representation/runtime/framework_registry.py": {
+      "sha256": "628301c56a6d0bf91c11a19cc13ccb3f1ec8862697ec2247fffeaaaf84c0a86f",
+      "size": 16075
+    },
+    "src/scientific_representation/runtime/handoff_support.py": {
+      "sha256": "3633aa2c9ae38e48102e7ab999f82a39bdd84ea323b8655120307f70e08ed069",
+      "size": 4142
+    },
+    "src/scientific_representation/runtime/orchestration.py": {
+      "sha256": "75a6458f9d35ae6ec8fbc16814c1684b46338bbef3ffb5fea38c1f4a3d32de97",
+      "size": 10303
+    },
+    "src/scientific_representation/runtime/persistence.py": {
+      "sha256": "909199659942b94cae69c9342f511f0a73742c7e23041a2548e26861fa51a8d6",
+      "size": 3101
+    },
+    "src/scientific_representation/runtime/representation_flow.py": {
+      "sha256": "56db5505c43cc295fd4928b7f0c6bac09854dabeabe80a51542e16ac1a1ba5e5",
+      "size": 4536
+    },
+    "src/scientific_representation/runtime/review.py": {
+      "sha256": "79d5a5fa92686223ff39cb4401dab69e7f7b6e55bc734ed2dce67bbd1eeb6437",
+      "size": 9230
+    },
+    "src/scientific_representation/runtime/service.py": {
+      "sha256": "efa510a333a6a65089e390fd2c8652ac5bdb96d986b24afb9be60e31a626b977",
+      "size": 18467
+    },
+    "src/scientific_representation/runtime/target_flow.py": {
+      "sha256": "1f20787362f976b52da66394a2e3badaebce976f8515f0bd1ddb20b725cf4eca",
+      "size": 13559
+    },
+    "src/scientific_representation/targets/__init__.py": {
+      "sha256": "1ac9396639ea5a86dbc0c150a67ae73fb30ea545cdfc5ff769bd4e1fe7eac757",
+      "size": 530
+    },
+    "src/scientific_representation/targets/artifact_validation.py": {
+      "sha256": "b7bd37a270bb4ae8071557b91fd18d596978618448ffecb80ce23fd1f4a1048e",
+      "size": 9745
+    },
+    "src/scientific_representation/targets/contracts.py": {
+      "sha256": "34ec5d27a17c0cef7aab679d6db07d867669deabe66b37af4b15a85af181df74",
+      "size": 362
+    },
+    "src/scientific_representation/targets/definition.py": {
+      "sha256": "f586f19ce02d7dfa4fbbef815fe52ab136854f1f216479521c4a61d30b1e4da4",
+      "size": 372
+    },
+    "src/scientific_representation/targets/plan_validation.py": {
+      "sha256": "fa89222e7d2c149de49e0cd7eba8754e2b455be3197960cec8b1f3e1cd8e9d6f",
+      "size": 6437
+    },
+    "src/scientific_representation/targets/realization.py": {
+      "sha256": "b09568d88502e0f0d7954b672feb0e8af5e5207fd79cfe812c9744357e70b22d",
+      "size": 450
+    },
+    "src/scientific_representation/targets/traceability.py": {
+      "sha256": "9c373a6118ab6aea126acf172d2c3f7f9e450db9c9663c18435db79999c2b761",
+      "size": 1828
+    },
+    "src/scientific_representation/targets/validation_support.py": {
+      "sha256": "8862b97fe50482629bb51989b029080a7b719c30741ad2573223253ebd3c4316",
+      "size": 2209
+    },
+    "src/scientific_representation/workflow.py": {
+      "sha256": "3e3f1903eb4b80ce84dda81722b3475bb4b4e021b551d05f1c199655f6502cb1",
+      "size": 842
+    },
+    "src/scientific_representation_target_definitions/__init__.py": {
+      "sha256": "a4d34492a66d0f985b379b533db73e1577f58f048276311672da3941772ecea7",
+      "size": 74
+    },
+    "src/scientific_representation_target_definitions/scientific_html/__init__.py": {
+      "sha256": "dd3e31812abc50021bebdd05b11ac2d409d2d6c3345f4fed2509cd04a9a6be93",
+      "size": 151
+    },
+    "src/scientific_representation_target_definitions/scientific_html/artifact_validation.py": {
+      "sha256": "40146c11661ef815bf616f0231a4dde16c1ddbeaca4ddb53083879b94a73dbe8",
+      "size": 21109
+    },
+    "src/scientific_representation_target_definitions/scientific_html/definition.py": {
+      "sha256": "bc6cea4723b3965fd2294d82830bfac7bd0e469592f7ef09ff35662cba353248",
+      "size": 4941
+    },
+    "src/scientific_representation_target_definitions/scientific_html/environment.py": {
+      "sha256": "3a32db0c1aec2be06ea80b9cbef2e0c1737e7e6bf948ced8b36e85c13b4bc097",
+      "size": 6012
+    },
+    "src/scientific_representation_target_definitions/scientific_html/plan_validation.py": {
+      "sha256": "747597dcddbba498050f5cb8b11db1d22fc88b5c30b35f7bc4567a90c04729b6",
+      "size": 11164
+    },
+    "target-definitions/README.md": {
+      "sha256": "37db89e218d73a66d229cf945172fc33286366ee29b7d184eab61fe71777dd1e",
+      "size": 783
+    },
+    "target-definitions/scientific-html/AGENT-GUIDE.md": {
+      "sha256": "3cf278ed0071572cf51fc5f64f67dc7747414fb5f4b470d704957aafe99071a4",
+      "size": 5215
+    },
+    "target-definitions/scientific-html/capabilities.json": {
+      "sha256": "63e80ff41c8905344b2b9997ad84df28ae7f6592603b7db686251c67342e32a5",
+      "size": 4827
+    },
+    "target-definitions/scientific-html/contracts/artifact.json": {
+      "sha256": "4a4ebdc5ed554fd696d40a6755ecd2f6a86265c3d700f8fccecaeda6afa04f6d",
+      "size": 3941
+    },
+    "target-definitions/scientific-html/contracts/plan.json": {
+      "sha256": "9dc8e15ae8606409be28f9a49facf5a3a6275f9d00c54f8ea30a7c8acc0a4223",
+      "size": 2460
+    },
+    "target-definitions/scientific-html/definition.json": {
+      "sha256": "6e564f58fa95fca642988e7be82010bbafa92d703654172682edbd2ce1d66618",
+      "size": 709
+    },
+    "target-definitions/scientific-html/scripts/validate-work-product.py": {
+      "sha256": "b4f84e7091bdec01edcd2d25f8878994caa3054b5a0cbe2026e622194b3642bc",
+      "size": 4702
+    },
+    "tests/test_package_contract.py": {
+      "sha256": "8862ca8c3504bdb147c2144a8e2820561fe17eb37bb7a3e4185722c8ee9087e6",
+      "size": 3416
+    }
+  },
+  "package_digest": "ea4f20d0d61770dbbb85d16db5204358046b8da32399f925e108e7b308aef9f5",
+  "package_id": "scientific-representation",
+  "package_version": "0.16.0",
+  "provenance": {
+    "source": {
+      "dirty": true,
+      "revision": "90a4a8181b3dd56e856efa298b12a2d5d9ed20fe"
+    }
+  },
+  "runtime_requirements": {
+    "python": ">=3.11",
+    "targets": {
+      "scientific-html": {
+        "profiles": {
+          "html-bokeh-customjs-v1": {
+            "optional_python_packages": [
+              "sympy"
+            ],
+            "required_external_tools": [],
+            "required_python_packages": [
+              "bokeh",
+              "numpy",
+              "scipy"
+            ]
+          },
+          "html-observable-custom-v1": {
+            "optional_python_packages": [],
+            "required_external_tools": [
+              "node",
+              "npm"
+            ],
+            "required_python_packages": [
+              "numpy",
+              "scipy"
+            ]
+          },
+          "html-panel-pyodide-v1": {
+            "optional_python_packages": [
+              "sympy"
+            ],
+            "required_external_tools": [],
+            "required_python_packages": [
+              "numpy",
+              "panel",
+              "scipy"
+            ]
+          },
+          "html-plotly-static-v1": {
+            "optional_python_packages": [
+              "jinja2",
+              "sympy"
+            ],
+            "required_external_tools": [],
+            "required_python_packages": [
+              "numpy",
+              "plotly",
+              "scipy"
+            ]
+          },
+          "jupyterlite-exploration-v1": {
+            "optional_python_packages": [],
+            "required_external_tools": [
+              "jupyter-lite"
+            ],
+            "required_python_packages": []
+          }
+        },
+        "verification": {
+          "browser": true,
+          "python_packages": [
+            "playwright"
+          ],
+          "runner": "playwright"
+        }
+      }
+    }
+  },
+  "schema_version": 2,
+  "targets": [
+    "scientific-html"
+  ]
+}

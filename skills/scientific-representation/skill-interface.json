@@ -1,0 +1,12 @@
+{
+  "schema_version": 2,
+  "skill_id": "scientific-representation",
+  "skill_description": "Use the packaged Scientific Representation project to produce and validate one final scientific work product in a continuous Agent execution.",
+  "framework_manifest": "framework.json",
+  "framework_entry": "scientific-representation.py",
+  "execution_model": "continuous-host-agent",
+  "result_model": "final-work-product",
+  "supported_framework_contracts": [
+    "portable-representation-v1"
+  ]
+}

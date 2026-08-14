@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "contract_id": "scientific-analysis-handoff-v2",
+  "inputs": {
+    "ScientificInput": {
+      "path": "input/scientific-input.md",
+      "role": "Read-only source material, equations, notation, assumptions, and supplied context."
+    },
+    "AnalysisQuestion": {
+      "path": "input/analysis-question.md",
+      "role": "The explanatory scientific problem to be answered independently of presentation styling."
+    }
+  },
+  "output": {
+    "artifact": "TheoreticalAccount",
+    "path": "analysis/theoretical-account.md",
+    "lineage_record": "analysis/theoretical-account.json",
+    "format": "markdown",
+    "required_dimensions": [
+      "accepted model and symbol meanings",
+      "central mechanism or structural relation",
+      "qualitative predictions",
+      "discriminating contrasts or checks",
+      "assumptions, domain, regime, and required data",
+      "failure conditions and unresolved edges",
+      "robust consequence or next scientific question"
+    ],
+    "epistemic_distinctions": [
+      "source-supported",
+      "mathematical-consequence",
+      "contextual-knowledge",
+      "heuristic-interpretation",
+      "unresolved"
+    ]
+  },
+  "record_shapes": {
+    "TheoreticalAccountRecord": {
+      "schema_version": 1,
+      "required": [
+        "schema_version",
+        "account_id",
+        "source_digest",
+        "analysis_question"
+      ],
+      "identity": "account_id is theoretical-account:<content_digest of the persisted TheoreticalAccount>",
+      "source_identity": "source_digest is the content_digest of the persisted ScientificInput"
+    }
+  },
+  "completion": "The account is bounded enough that representation can use it without inferring missing model meaning or validity conditions.",
+  "non_authority": [
+    "does not choose a rendering library or packaging topology",
+    "does not infer scientific validity from execution success",
+    "does not absorb the user's presentation direction into the scientific source record"
+  ]
+}

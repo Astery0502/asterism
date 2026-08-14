@@ -1,0 +1,47 @@
+{
+  "schema_version": 3,
+  "contract_id": "scientific-review-handoff-v3",
+  "inputs": [
+    "TheoreticalAccount",
+    "RepresentationRequirementsPackage",
+    "TargetNativeDecisionPlan",
+    "ApplicationExecutionRecord",
+    "ApplicationArtifact",
+    "ApplicationManifest",
+    "MechanicalEvidence",
+    "MechanicalConformanceRecord"
+  ],
+  "output": {
+    "artifact": "ScientificReviewRecord",
+    "path": "review/scientific-review.md",
+    "lineage_record": "review/review-result.json"
+  },
+  "record_shapes": {
+    "ScientificReviewRecord": {
+      "schema_version": 1,
+      "required": [
+        "schema_version",
+        "review_id",
+        "reviewer_id",
+        "judgment",
+        "record_digest",
+        "reviewed"
+      ],
+      "reviewed_required": [
+        "theoretical_account_id",
+        "representation_intent_id",
+        "requirements_id",
+        "plan_id",
+        "application_manifest_digest"
+      ],
+      "identity": "review_id is scientific-review:<content_digest of the canonical reviewer, judgment, record digest, and reviewed lineage record>"
+    }
+  },
+  "judgments": ["accepted", "revision_requested", "inconclusive"],
+  "admission": "ApplicationExecutionRecord.execution_status must be completed; mechanical conformance may be passed or failed.",
+  "completion": "The review judgment, basis, important limits, reviewed lineage, and module-specific feedback are explicit.",
+  "non_authority": [
+    "does not silently modify accepted upstream artifacts",
+    "does not infer scientific validity from mechanical success"
+  ]
+}

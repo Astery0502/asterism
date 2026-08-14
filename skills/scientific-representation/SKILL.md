@@ -1,120 +1,54 @@
 ---
 name: scientific-representation
-description: Turn raw scientific literature, equations, formulas, and mathematical-physics descriptions plus a user's presentation direction into a case-specific, interactive, validated standalone Scientific HTML representation. Use when Codex should run the embedded prototype's complete scientific-analysis, representation-requirements, native-planning, implementation, and fast-verification workflow from original scientific material.
-disable-model-invocation: true
+description: Use the packaged Scientific Representation project to produce and validate one final scientific work product in a continuous Agent execution.
 ---
 
 # Scientific Representation
 
-Use the embedded framework runtime as the authority for method, semantics,
-target capabilities, and contracts. Use this Skill to coordinate that
-authority into one complete Agent workflow.
+Use the packaged upstream project directly to turn scientific material and
+presentation intent into one inspectable, validated work product. Act as the
+scientific analyst, representation designer, target realizer, implementer, and
+scientific reviewer in one continuous execution. Use lifecycle stages as
+scientific responsibilities while keeping the work product a single delivery.
 
-## Create the workspace
+## Inspect the packaged authority
 
-Resolve `<skill-root>` as the directory containing this `SKILL.md`, then create
-a writable Prototype copy:
+Read `skill-interface.json` and `framework.json`. Follow the referenced
+principles, method, pipeline, module guides, module contracts, and selected
+target definition. Inspect available targets and runtime readiness with the
+packaged project:
 
-```powershell
-python <skill-root>/scripts/create-workspace.py <destination>
+```bash
+python3 scientific-representation.py method --json
+python3 scientific-representation.py targets --json
+python3 scientific-representation.py doctor --target <target> --json
 ```
 
-Perform the case work in that copy. Keep
-`<skill-root>/assets/prototype/` as the reusable framework snapshot. The
-snapshot intentionally contains no recorded cases, generated products, case
-evidence, or case-specific tests.
+Use the target definition record to locate its Agent guide, capabilities, plan
+contract, artifact contract, and final work-product validator. Do not infer
+these resources from this wrapper or maintain a parallel Skill-specific model.
 
-## Read the authority
+## Produce one final work product
 
-Read these files completely and in order from the copied workspace:
+Complete the packaged scientific lifecycle internally before delivering the
+result. Create one coherent work-product directory outside the installed Skill.
+The directory may contain canonical scientific, representation, plan,
+application, evidence, and review records required for inspectability, but they
+are parts of one final delivery—not separate Agent responses or interactive
+stage checkpoints.
 
-1. `AGENTS.md`
-2. `modules/scientific-analysis/AGENT-GUIDE.md`
-3. `method.json`
-4. `adapters/scientific-html/AGENT-GUIDE.md`
-5. the capability and contract files referenced by the HTML guide
+Do not ask the user to provide Python module/class implementations for Agent
+roles. Complete the lifecycle without intermediate user-facing checkpoints.
+Use the project's canonical records and validators without copying their
+semantics into new wrapper files.
 
-Let the embedded Prototype define all stage semantics, field shapes, target
-contracts, and verification details. Keep this outer Skill responsible only
-for routing those authoritative parts into one workflow.
+## Validate and return
 
-Inspect the current Scientific HTML runtime from the copied workspace:
+Read `work_product_validator` from the selected target definition and run it on
+the completed work product. When supported, request a written receipt. Require
+the final validator result to pass before reporting success.
 
-```powershell
-python prototype.py doctor --target scientific-html --json
-```
-
-## Execute the method
-
-Accept two distinct inputs:
-
-- the original scientific literature, equations, formulas, or description;
-- the user's desired presentation direction.
-
-Preserve them as separate input records. Derive the scientific analysis
-question from the source's explanatory problem, then form the scientific
-account from that question and the source. Introduce the user's presentation
-direction when the Prototype method forms representation intent, requirements,
-and interface semantics.
-
-For a new case, perform the scientific analysis, target translation, and
-application implementation directly as the Agent:
-
-1. Produce the bounded `TheoreticalAccount` defined by the analysis guide.
-2. Convert that account and the presentation direction into target-neutral
-   representation requirements.
-3. Translate the accepted requirements into an inert Scientific HTML native
-   plan.
-4. Implement the case-specific model, interaction, views, explanation, and
-   standalone product according to the HTML guide and selected capability
-   profile.
-5. Record the compact evidence required by fast verification.
-
-Place the case under `work/<case>/` and preserve the Prototype boundaries:
-
-```text
-input/
-  scientific-input.md
-  presentation-direction.md
-analysis/
-  theoretical-account.md
-representation/
-  representation-intent.json
-  representation-requirements.md
-  representation-interface.json
-targets/scientific-html/
-  native-plan.json
-application/
-  model and build sources
-  verification/
-  evidence/
-  application-manifest.json
-  product/index.html
-```
-
-## Verify and deliver
-
-Use the embedded Prototype's fast verification route by default. Let its
-selected capability profile and work-product gate determine the current checks
-and evidence shape.
-
-From the copied workspace, run the Prototype's work-product gate:
-
-```powershell
-python adapters/scientific-html/scripts/validate-work-product.py work/<case> --write-receipt
-```
-
-Mechanical checks establish implementation conformance; they do not
-independently establish scientific review.
-
-Deliver the independently copyable
-`work/<case>/application/product/index.html` with a concise account of its
-scientific interpretation, interaction semantics, limits, and verification
-result.
-
-## Embedded resources
-
-- `assets/prototype/` contains the portable framework runtime without recorded
-  cases or generated evidence.
-- `scripts/create-workspace.py` creates a clean working copy without modifying
-  the embedded snapshot.
+Return only the final work-product location, artifact entry point, validation
+receipt, scientific judgment, important limits, and unmet requirements. Do not
+surface internal lifecycle records as separate deliverables unless the user
+asks to inspect them.

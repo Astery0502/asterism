@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "application_id": "scientific-representation-framework",
+  "application_version": "0.16.0",
+  "compatibility_contract": "portable-representation-v1",
+  "pipeline": {
+    "path": "framework/pipeline.json"
+  },
+  "modules": {
+    "scientific_inquiry": {
+      "guide": "framework/modules/scientific-inquiry/MODULE.md",
+      "contract": "framework/modules/scientific-inquiry/contract.json"
+    },
+    "representation_inquiry": {
+      "guide": "framework/modules/representation-inquiry/MODULE.md",
+      "contract": "framework/modules/representation-inquiry/contract.json"
+    },
+    "target_realization": {
+      "guide": "framework/modules/target-realization/MODULE.md",
+      "contract": "framework/modules/target-realization/contract.json"
+    },
+    "application_conformance": {
+      "guide": "framework/modules/application-conformance/MODULE.md",
+      "contract": "framework/modules/application-conformance/contract.json"
+    },
+    "scientific_review": {
+      "guide": "framework/modules/scientific-review/MODULE.md",
+      "contract": "framework/modules/scientific-review/contract.json"
+    }
+  },
+  "method": {
+    "path": "framework/method.json"
+  },
+  "default_target": "scientific-html",
+  "targets": {
+    "scientific-html": {
+      "definition": "scientific_representation_target_definitions.scientific_html:ScientificHtmlTargetDefinition",
+      "definition_record": "target-definitions/scientific-html/definition.json"
+    }
+  },
+  "case_catalog": "cases/catalog.json"
+}

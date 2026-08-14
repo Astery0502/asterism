@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "contract_id": "application-conformance-handoff-v2",
+  "inputs": [
+    "TheoreticalAccount",
+    "RepresentationRequirementsPackage",
+    "TargetNativeDecisionPlan",
+    "ApplicationArtifactContract"
+  ],
+  "outputs": {
+    "ApplicationExecutionRecord": "application/result.json",
+    "ApplicationArtifact": "application/product/",
+    "MechanicalEvidence": "application/evidence/",
+    "ApplicationManifest": "application/application-manifest.json",
+    "MechanicalConformanceRecord": "application/contract-validation.json"
+  },
+  "record_shapes": {
+    "ApplicationExecutionRecord": {
+      "required": ["execution_status", "manifest_record"],
+      "execution_status": ["completed", "failed"],
+      "manifest_record": "required path when completed; null when failed"
+    },
+    "MechanicalConformanceRecord": {
+      "required": ["status", "artifact_contract_id", "pass"]
+    }
+  },
+  "completion": "A failed execution ends with an execution record and failed conformance record. A completed execution also provides the declared manifest, artifacts, and evidence records.",
+  "non_authority": [
+    "does not weaken accepted requirements to obtain a pass",
+    "does not infer scientific validity from mechanical success",
+    "does not replace scientific review"
+  ]
+}

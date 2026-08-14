@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "contract_id": "representation-requirements-package-v2",
+  "inputs": {
+    "TheoreticalAccount": "analysis/theoretical-account.md",
+    "PresentationInquirySeed": {
+      "at_least_one": {
+        "PresentationDirection": "input/presentation-direction.md",
+        "PresentationQuestionSeed": "input/presentation-question.md"
+      }
+    }
+  },
+  "outputs": {
+    "RepresentationIntent": "representation/representation-intent.json",
+    "RepresentationRequirements": "representation/representation-requirements.md",
+    "RepresentationInterface": "representation/representation-interface.json"
+  },
+  "record_shapes": {
+    "RepresentationIntent": {
+      "required": [
+        "schema_version",
+        "intent_id",
+        "requirements_id",
+        "theoretical_account_id",
+        "presentation_question",
+        "pivotal_hypotheses"
+      ],
+      "optional": ["method_id", "case_id"],
+      "pivotal_hypotheses": {
+        "item_required": ["id", "requirement_refs"]
+      }
+    },
+    "RepresentationInterface": ["controls", "anchors", "views", "exports"]
+  },
+  "required_semantics": [
+    "presentation question",
+    "theory anchor",
+    "researcher capability",
+    "controlled contrast and held-fixed conditions",
+    "observable and expected signature",
+    "explanatory bridge",
+    "interaction contract",
+    "warrant and limits",
+    "review probe"
+  ],
+  "completion": "The package states what a representation must mean and permit without selecting a target-native implementation.",
+  "non_authority": [
+    "does not choose a visualization library",
+    "does not choose computation timing or delivery topology",
+    "does not rewrite the accepted scientific account"
+  ]
+}

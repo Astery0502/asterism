@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "target_id": "scientific-html",
+  "display_name": "Interactive Scientific HTML",
+  "implementation_status": "consumer-realizer-required",
+  "realizer_ownership": "agent-consumer-runtime",
+  "realizer_interface": "scientific_representation.targets.realization:TargetRealizer",
+  "capabilities": "target-definitions/scientific-html/capabilities.json",
+  "plan_contract": "target-definitions/scientific-html/contracts/plan.json",
+  "artifact_contract": "target-definitions/scientific-html/contracts/artifact.json",
+  "agent_guide": "target-definitions/scientific-html/AGENT-GUIDE.md",
+  "work_product_validator": "target-definitions/scientific-html/scripts/validate-work-product.py"
+}

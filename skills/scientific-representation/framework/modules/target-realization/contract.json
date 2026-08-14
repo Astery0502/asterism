@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "contract_id": "target-realization-handoff-v2",
+  "inputs": [
+    "TheoreticalAccount",
+    "RepresentationRequirementsPackage",
+    "TargetCapabilityCatalog",
+    "RuntimeCapabilityObservation",
+    "TargetPlanContract",
+    "ApplicationArtifactContract"
+  ],
+  "outputs": {
+    "TargetNativeDecisionPlan": "targets/<target>/native-plan.json",
+    "TargetPlanValidationRecord": "targets/<target>/contract-validation.json"
+  },
+  "record_shapes": {
+    "TargetPlanValidationRecord": {
+      "required": ["status", "plan_contract_id", "pass"]
+    }
+  },
+  "completion": "Every pivotal requirement is covered, conditional, or explicitly unmet and the selected target-native decisions are inspectable.",
+  "non_authority": [
+    "does not rewrite scientific claims or limits",
+    "does not remove inconvenient representation requirements",
+    "does not perform scientific review"
+  ]
+}

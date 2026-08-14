@@ -1,0 +1,82 @@
+{
+  "schema_version": 3,
+  "contract_id": "scientific-representation-pipeline-v3",
+  "purpose": "Keep scientific interpretation, representation design, target realization, implementation, and review independently inspectable.",
+  "stages": [
+    {
+      "id": "analysis",
+      "module": "scientific_inquiry",
+      "inputs": ["ScientificInput", "AnalysisQuestion"],
+      "outputs": ["TheoreticalAccount"],
+      "authority": "May interpret scientific material and state a bounded account with explicit basis, assumptions, regimes, and limits."
+    },
+    {
+      "id": "representation",
+      "module": "representation_inquiry",
+      "inputs": ["TheoreticalAccount", "PresentationInquirySeed"],
+      "outputs": ["RepresentationRequirementsPackage"],
+      "authority": "May define target-neutral researcher capabilities, contrasts, observables, explanatory bridges, interactions, and review probes."
+    },
+    {
+      "id": "target_translation",
+      "module": "target_realization",
+      "inputs": ["TheoreticalAccount", "RepresentationRequirementsPackage", "TargetCapabilityCatalog", "RuntimeCapabilityObservation", "TargetPlanContract", "ApplicationArtifactContract"],
+      "outputs": ["TargetNativeDecisionPlan", "TargetPlanValidationRecord"],
+      "authority": "May choose target-native computation, interaction, view, dependency, delivery, and verification decisions without changing scientific meaning."
+    },
+    {
+      "id": "application",
+      "module": "application_conformance",
+      "inputs": ["TheoreticalAccount", "RepresentationRequirementsPackage", "TargetNativeDecisionPlan", "ApplicationArtifactContract"],
+      "outputs": ["ApplicationExecutionRecord", "ApplicationArtifact", "ApplicationManifest", "MechanicalEvidence", "MechanicalConformanceRecord"],
+      "authority": "May materialize and mechanically verify the accepted plan."
+    },
+    {
+      "id": "scientific_review",
+      "module": "scientific_review",
+      "inputs": ["TheoreticalAccount", "RepresentationRequirementsPackage", "TargetNativeDecisionPlan", "ApplicationExecutionRecord", "ApplicationArtifact", "ApplicationManifest", "MechanicalEvidence", "MechanicalConformanceRecord"],
+      "outputs": ["ScientificReviewRecord"],
+      "authority": "May judge faithfulness, discrimination, boundary awareness, and usefulness; this judgment is not inferred from mechanical success."
+    }
+  ],
+  "dependency_rules": [
+    "framework must not depend on target definitions, applications, cases, or consumers",
+    "runtime may depend on framework contracts but not on a concrete consumer",
+    "target definitions may depend on runtime public contracts and framework semantics",
+    "applications and cases may depend on runtime and selected target definitions",
+    "consumers may select upstream components but must not own a second editable framework copy",
+    "generated distributions must remain untracked and non-authoritative"
+  ],
+  "case_workspace": {
+    "input": [
+      "input/scientific-input.md",
+      "input/presentation-direction.md",
+      "input/presentation-question.md",
+      "input/analysis-question.md"
+    ],
+    "analysis": [
+      "analysis/theoretical-account.md",
+      "analysis/theoretical-account.json"
+    ],
+    "representation": [
+      "representation/representation-intent.json",
+      "representation/representation-requirements.md",
+      "representation/representation-interface.json"
+    ],
+    "target_translation": [
+      "targets/<target>/native-plan.json",
+      "targets/<target>/contract-validation.json"
+    ],
+    "application": [
+      "application/result.json",
+      "application/application-manifest.json",
+      "application/contract-validation.json",
+      "application/product/",
+      "application/evidence/"
+    ],
+    "scientific_review": [
+      "review/scientific-review.md",
+      "review/review-result.json"
+    ]
+  }
+}
