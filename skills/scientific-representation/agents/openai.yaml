@@ -1,0 +1,7 @@
+interface:
+  display_name: "Scientific Representation"
+  short_description: "Turn raw scientific material into validated HTML"
+  default_prompt: "Use $scientific-representation to turn this scientific source and my presentation direction into a validated standalone Scientific HTML product."
+
+policy:
+  allow_implicit_invocation: false

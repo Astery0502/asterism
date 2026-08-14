@@ -1,0 +1,120 @@
+{
+  "schema_version": 2,
+  "method_id": "claim-centered-scientific-representation-v1",
+  "purpose": "Turn a bounded mathematical-physics claim into a prospective, inspectable scientific representation without transferring interpretive authority to the renderer or executor.",
+  "phases": [
+    {
+      "id": "analysis",
+      "question": "What does the accepted mathematical or physical description mean, what follows from it, where is it valid, and where does it lead?",
+      "input": ["RawScientificText", "AnalysisQuestion"],
+      "output": "TheoreticalAccount",
+      "default_module": "modules/scientific-analysis/AGENT-GUIDE.md",
+      "module_selection": "Use the bundled default guide or another available project-local or external scientific-analysis method suited to the input.",
+      "result_role": "BoundedScientificAccount",
+      "handoff_preparation": "When a method uses a different output form, an optional integration/checking step lightly organizes its model, mechanism, assumptions, scope, predictions, and limits into the TheoreticalAccount handoff while preserving its scientific meaning.",
+      "completion": "Complete when a bounded TheoreticalAccount states the model, mechanism, scope, and limits."
+    },
+    {
+      "id": "representation",
+      "question": "What must a researcher be able to predict, distinguish, explain, control, observe, and review?",
+      "input": ["TheoreticalAccount", "PresentationQuestion"],
+      "output": "PresentationPackage",
+      "completion": "Complete when the presentation question has a coherent intent, requirements record, and operational interface summary."
+    }
+  ],
+  "handoff": {
+    "artifact": "TheoreticalAccount",
+    "semantic_role": "BoundedScientificAccount",
+    "producer": "analysis",
+    "consumer": "representation",
+    "meaning": "TheoreticalAccount is the project name for the bounded scientific account consumed by representation, independently of the originating module and its native output format.",
+    "preparation": "A lightweight integration/checking step may arrange an available module's result into this role while preserving the two-phase method."
+  },
+  "entry_modes": [
+    {
+      "id": "account_available",
+      "input": ["TheoreticalAccount", "PresentationQuestion"],
+      "behavior": "Begin directly at representation when a bounded scientific account is already available, regardless of which method produced it."
+    },
+    {
+      "id": "analysis_needed",
+      "input": ["RawScientificText", "AnalysisQuestion", "PresentationQuestion"],
+      "behavior": "Select an available scientific-analysis method, produce the bounded scientific account, prepare the handoff when needed, and then form representation requirements for the presentation question."
+    }
+  ],
+  "inquiry_cycle": [
+    {
+      "id": "ground",
+      "question": "What accepted equation, objects, domain, data, assumptions, and meanings make the claim intelligible?"
+    },
+    {
+      "id": "predict",
+      "question": "What observable behavior should follow before computation or rendering?"
+    },
+    {
+      "id": "stress",
+      "question": "Which controlled contrast, counterfactual, limit, or alternative representation can discriminate the claim?"
+    },
+    {
+      "id": "focus",
+      "question": "Which pivotal relation or mechanism deserves the smallest adequate evidence set?"
+    },
+    {
+      "id": "bound",
+      "question": "What supports the reading, where is it valid, and what can the representation not establish?"
+    },
+    {
+      "id": "extend",
+      "question": "Which next question can be stated as an observable plus a controlled comparison?"
+    }
+  ],
+  "translation_chain": [
+    "accepted_basis",
+    "theory_anchor",
+    "researcher_capability",
+    "controlled_contrast",
+    "observable",
+    "expected_signature",
+    "explanatory_bridge",
+    "representation",
+    "interaction_contract",
+    "warrant_and_limits",
+    "review_probe"
+  ],
+  "authority": {
+    "analysis": "May interpret evidence and assign bounded mathematical or scientific claim status.",
+    "requirements": "States the scientific, computational, evidential, interaction, artifact, and validation obligations for the presentation.",
+    "target_translation": "Expresses those obligations as target-native computation, interaction, view, packaging, and check decisions.",
+    "application": "Materializes computation, interaction, rendering, export, and conformance observations.",
+    "executor": "Carries requests, results, and operational observations.",
+    "feedback": "A downstream mathematical concern becomes a new question returned to analysis."
+  },
+  "outcome_dimensions": {
+    "mechanical_conformance": "Whether declared structure, computation, artifacts, and behavior checks pass.",
+    "scientific_review": "Whether the presentation is faithful, discriminating, bounded, and useful for its presentation question. It is not inferred from execution success."
+  },
+  "realization_branch": {
+    "resume_artifact": "RepresentationRequirementsPackage",
+    "default_target": "scientific-html",
+    "target_selection": "Use Scientific HTML as the visualization route supplied by this framework snapshot.",
+    "inputs": [
+      "TheoreticalAccount",
+      "RepresentationIntent",
+      "RepresentationRequirements",
+      "RepresentationInterface",
+      "TargetCapabilityCatalog",
+      "RuntimeCapabilityObservation"
+    ],
+    "selection_basis": [
+      "computation_timing",
+      "interaction_semantics",
+      "delivery_topology",
+      "delivery_connectivity",
+      "view_semantics",
+      "numeric_contract"
+    ],
+    "output": "TargetNativeDecisionPlan",
+    "meaning": "Representation requirements are converted into target-native decisions and then implemented by the selected realization route."
+  },
+  "intent_scope": "Each case intent is a concise semantic index into the complete requirements record, not a replacement specification."
+}

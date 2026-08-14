@@ -7,6 +7,7 @@ import { parseDocument } from 'yaml';
 const root = path.resolve(process.argv[2] ?? '.');
 const skillsRoot = path.join(root, 'skills');
 const errors = [];
+const invocationPolicies = new Map();
 const ignoredDirectories = new Set(['.git', 'node_modules']);
 const validName = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const retiredTriggerWording = /LOAD ONLY|Do not auto-load/i;
@@ -82,6 +83,26 @@ function localTargets(markdown) {
   return targets;
 }
 
+function markdownWithoutCode(markdown) {
+  return markdown
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/~~~[\s\S]*?~~~/g, '')
+    .replace(/^ {4}.*$/gm, '')
+    .replace(/(`+)[\s\S]*?\1/g, '');
+}
+
+function auditPolicy(container, field) {
+  if (!isObject(container)) return { state: 'unavailable' };
+  if (!Object.hasOwn(container, field)) return { state: 'unset' };
+  return { state: 'set', value: container[field] };
+}
+
+function formatPolicy(policy) {
+  if (policy.state !== 'set') return policy.state;
+  if (typeof policy.value === 'boolean') return String(policy.value);
+  return `${JSON.stringify(policy.value)} (non-boolean)`;
+}
+
 function isExternalTarget(target) {
   return /^(?:[a-z][a-z0-9+.-]*:|#|\/)/i.test(target);
 }
@@ -154,6 +175,11 @@ for (const child of children) {
   const skillDirectory = path.join(skillsRoot, child.name);
   const skillFile = path.join(skillDirectory, 'SKILL.md');
   const metadataFile = path.join(skillDirectory, 'agents', 'openai.yaml');
+  const invocationPolicy = {
+    disableModelInvocation: { state: 'unavailable' },
+    allowImplicitInvocation: { state: 'unavailable' },
+  };
+  invocationPolicies.set(child.name, invocationPolicy);
 
   if (!allFileSet.has(skillFile)) {
     errors.push(`${relative(skillFile)}: missing SKILL.md`);
@@ -165,6 +191,7 @@ for (const child of children) {
   if (frontmatter !== null && !isObject(frontmatter)) {
     errors.push(`${relative(skillFile)}: frontmatter must be a mapping`);
   } else if (isObject(frontmatter)) {
+    invocationPolicy.disableModelInvocation = auditPolicy(frontmatter, 'disable-model-invocation');
     const name = validateString(skillFile, 'frontmatter name', frontmatter.name);
     const description = validateString(skillFile, 'frontmatter description', frontmatter.description);
     if (name) {
@@ -182,9 +209,6 @@ for (const child of children) {
     if (description && retiredTriggerWording.test(description)) {
       errors.push(`${relative(skillFile)}: description contains retired trigger-policy wording`);
     }
-    if (frontmatter['disable-model-invocation'] !== true) {
-      errors.push(`${relative(skillFile)}: disable-model-invocation must be true`);
-    }
   }
 
   if (!allFileSet.has(metadataFile)) {
@@ -194,6 +218,9 @@ for (const child of children) {
     if (metadata !== null && !isObject(metadata)) {
       errors.push(`${relative(metadataFile)}: metadata must be a mapping`);
     } else if (isObject(metadata)) {
+      invocationPolicy.allowImplicitInvocation = metadata.policy === undefined
+        ? { state: 'unset' }
+        : auditPolicy(metadata.policy, 'allow_implicit_invocation');
       validateString(metadataFile, 'interface.display_name', metadata.interface?.display_name);
       const shortDescription = validateString(metadataFile, 'interface.short_description', metadata.interface?.short_description);
       const defaultPrompt = validateString(metadataFile, 'interface.default_prompt', metadata.interface?.default_prompt);
@@ -207,9 +234,6 @@ for (const child of children) {
         if (!isOneSentence(defaultPrompt)) {
           errors.push(`${relative(metadataFile)}: interface.default_prompt must be one sentence`);
         }
-      }
-      if (metadata.policy?.allow_implicit_invocation !== false) {
-        errors.push(`${relative(metadataFile)}: policy.allow_implicit_invocation must be false`);
       }
       for (const assetField of ['icon_small', 'icon_large']) {
         const asset = metadata.interface?.[assetField];
@@ -233,7 +257,7 @@ for (const child of children) {
       errors.push(`${relative(file)}: machine-specific absolute path: ${pathMatch[0]}`);
     }
     if (path.extname(file).toLowerCase() === '.md') {
-      for (const target of localTargets(text)) {
+      for (const target of localTargets(markdownWithoutCode(text))) {
         await validateLocalTarget(file, skillDirectory, target);
       }
     }
@@ -257,6 +281,14 @@ if (!await exists(readmeFile)) {
       errors.push(`README.md: skill catalog differs; expected [${expectedNames.join(', ')}], found [${readmeNames.join(', ')}]`);
     }
   }
+}
+
+console.log('Invocation policy audit (advisory only):');
+for (const [name, policy] of invocationPolicies) {
+  console.log(
+    `- ${name}: disable-model-invocation=${formatPolicy(policy.disableModelInvocation)}; `
+    + `allow_implicit_invocation=${formatPolicy(policy.allowImplicitInvocation)}`,
+  );
 }
 
 if (errors.length > 0) {

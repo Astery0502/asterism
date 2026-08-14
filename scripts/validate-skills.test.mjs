@@ -74,7 +74,39 @@ test('accepts valid skills, metadata, links, images, and reference links', async
   t.after(() => rm(root, { recursive: true, force: true }));
   const result = validate(root);
   assert.equal(result.status, 0, result.stderr);
+  assert.match(result.stdout, /Invocation policy audit \(advisory only\):/);
+  assert.match(result.stdout, /alpha: disable-model-invocation=true; allow_implicit_invocation=false/);
   assert.match(result.stdout, /Validated 2 skills: alpha, beta/);
+});
+
+test('reports invocation policies without enforcing their values or presence', async (t) => {
+  const root = await fixture({
+    ...validFiles(['alpha', 'beta']),
+    'skills/alpha/SKILL.md': '---\nname: alpha\ndescription: Alpha workflow\n---\n',
+    'skills/alpha/agents/openai.yaml': metadata('alpha', { allowImplicitInvocation: true }),
+    'skills/beta/agents/openai.yaml': metadata('beta', { allowImplicitInvocation: undefined }),
+  });
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const result = validate(root);
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(
+    result.stdout,
+    /alpha: disable-model-invocation=unset; allow_implicit_invocation=true/,
+  );
+  assert.match(
+    result.stdout,
+    /beta: disable-model-invocation=true; allow_implicit_invocation=unset/,
+  );
+});
+
+test('ignores Markdown link-like syntax inside code', async (t) => {
+  const root = await fixture({
+    ...validFiles(),
+    'skills/alpha/SKILL.md': `${skill('alpha')}\n\`Min[x,xi](L-Max[x,xi])\`\n\n\`\`\`text\n[not a link](missing.md)\n\`\`\`\n`,
+  });
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const result = validate(root);
+  assert.equal(result.status, 0, result.stderr);
 });
 
 for (const scenario of [
@@ -115,11 +147,6 @@ for (const scenario of [
       'skills/beta/SKILL.md': skill('alpha'),
     },
     error: 'duplicate declared name "alpha"',
-  },
-  {
-    name: 'rejects missing Claude invocation policy',
-    files: { ...validFiles(), 'skills/alpha/SKILL.md': '---\nname: alpha\ndescription: Alpha workflow\n---\n' },
-    error: 'disable-model-invocation must be true',
   },
   {
     name: 'rejects retired trigger wording',
@@ -175,11 +202,6 @@ for (const scenario of [
     name: 'rejects multi-sentence default prompts',
     files: { ...validFiles(), 'skills/alpha/agents/openai.yaml': metadata('alpha', { defaultPrompt: 'Use $alpha for this workflow. Then stop.' }) },
     error: 'interface.default_prompt must be one sentence',
-  },
-  {
-    name: 'rejects implicit Codex invocation',
-    files: { ...validFiles(), 'skills/alpha/agents/openai.yaml': metadata('alpha', { allowImplicitInvocation: true }) },
-    error: 'policy.allow_implicit_invocation must be false',
   },
   {
     name: 'rejects off-catalog SKILL.md',

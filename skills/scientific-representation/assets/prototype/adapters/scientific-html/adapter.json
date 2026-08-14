@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "target_id": "scientific-html",
+  "display_name": "Interactive Scientific HTML",
+  "implementation_status": "agent-framework",
+  "realizer_interface": "portable_prototype.targets.realization:TargetRealizer",
+  "capabilities": "adapters/scientific-html/capabilities.json",
+  "plan_contract": "adapters/scientific-html/plan-contract.json",
+  "artifact_contract": "adapters/scientific-html/artifact-contract.json",
+  "agent_guide": "adapters/scientific-html/AGENT-GUIDE.md"
+}

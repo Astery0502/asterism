@@ -25,7 +25,7 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
-      - name: Test structural validator
+      - name: Test validator and framework contracts
         run: npm test
 
       - name: Validate skill structure

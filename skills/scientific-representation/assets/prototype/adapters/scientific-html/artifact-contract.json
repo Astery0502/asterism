@@ -1,0 +1,78 @@
+{
+  "schema_version": 2,
+  "contract_id": "scientific-html-artifact-v2",
+  "default_verification_level": "fast",
+  "required_records": [
+    "application-manifest.json",
+    "product/index.html",
+    "evidence/numerical-checks.json",
+    "evidence/browser-checks.json"
+  ],
+  "required_pass_records": [
+    "evidence/numerical-checks.json",
+    "evidence/browser-checks.json"
+  ],
+  "evidence_record_contract": {
+    "schema_version": 1,
+    "required_record_fields": ["schema_version", "record_type", "runner", "pass", "checks"],
+    "required_check_fields": ["id", "status", "method", "details"],
+    "accepted_statuses": ["passed", "not_applicable"],
+    "record_types": {
+      "evidence/numerical-checks.json": "numerical",
+      "evidence/browser-checks.json": "browser"
+    },
+    "coverage": {
+      "evidence/numerical-checks.json": ["scientific_computation"],
+      "evidence/browser-checks.json": ["interaction", "browser", "artifact"]
+    }
+  },
+  "manifest_fields": [
+    "plan_id",
+    "target_id",
+    "toolchain_profile_id",
+    "representation_intent_id",
+    "requirements_id",
+    "dependencies",
+    "entry_point",
+    "artifacts",
+    "requirement_traceability",
+    "validation_evidence"
+  ],
+  "dependency_fields": ["name", "version", "license", "source"],
+  "traceability_fields": ["requirement_id", "artifact", "check"],
+  "mechanical_checks": {
+    "scientific_computation": ["identities-or-residuals", "invariants", "boundary-or-initial-conditions", "declared-tolerances"],
+    "interaction": ["bounds", "steps", "defaults", "named-anchors", "linked-view-updates", "invalid-state-handling"],
+    "browser": ["fresh-load", "no-console-errors", "control-causes-expected-state-change", "offline-network-block-when-declared", "review-screenshot"],
+    "artifact": ["entry-point-resolves", "assets-resolve", "manifest-paths-resolve", "dependency-and-license-provenance"]
+  },
+  "verification_levels": {
+    "fast": {
+      "scientific_computation": ["identities-or-residuals"],
+      "interaction": [],
+      "browser": ["fresh-load", "no-console-errors", "control-causes-expected-state-change"],
+      "artifact": ["entry-point-resolves", "manifest-paths-resolve"]
+    },
+    "full": {
+      "scientific_computation": ["identities-or-residuals", "invariants", "boundary-or-initial-conditions", "declared-tolerances"],
+      "interaction": ["bounds", "steps", "defaults", "named-anchors", "linked-view-updates", "invalid-state-handling"],
+      "browser": ["fresh-load", "no-console-errors", "control-causes-expected-state-change", "offline-network-block-when-declared", "review-screenshot"],
+      "artifact": ["entry-point-resolves", "assets-resolve", "manifest-paths-resolve", "dependency-and-license-provenance"]
+    }
+  },
+  "structured_check_details": {
+    "identities-or-residuals": ["sampling_ref", "tolerance_ref", "measured_value", "norm", "reference_method"],
+    "invariants": ["sampling_ref", "tolerance_ref", "measured_value", "norm", "reference_method"],
+    "boundary-or-initial-conditions": ["sampling_ref", "tolerance_ref", "measured_value", "norm", "reference_method"],
+    "declared-tolerances": ["sampling_refs", "tolerance_refs"],
+    "fresh-load": ["loaded", "document_ready_state"],
+    "no-console-errors": ["console_errors"],
+    "assets-resolve": ["request_count", "local_references", "observed_local_requests", "failed_requests"],
+    "offline-network-block-when-declared": ["network_blocked", "unexpected_requests"],
+    "review-screenshot": ["anchor_screenshots"]
+  },
+  "outcome_authority": {
+    "mechanical_conformance": "May be established by the target implementation and its checks.",
+    "scientific_review": "Remains not_performed until a reviewer judges faithfulness, discrimination, boundaries, and usefulness."
+  }
+}

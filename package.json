@@ -6,7 +6,9 @@
     "node": ">=22"
   },
   "scripts": {
-    "test": "node --test scripts/validate-skills.test.mjs",
+    "test": "npm run test:validator && npm run test:scientific-representation-contract",
+    "test:validator": "node --test scripts/validate-skills.test.mjs",
+    "test:scientific-representation-contract": "python3 -m unittest discover -s skills/scientific-representation/tests -p 'test_*.py' -v",
     "validate": "node scripts/validate-skills.mjs"
   },
   "dependencies": {

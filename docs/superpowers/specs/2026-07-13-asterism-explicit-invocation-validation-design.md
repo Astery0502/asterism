@@ -1,4 +1,4 @@
-# Asterism Explicit Invocation And Validation Design
+# Asterism Invocation Policy Audit And Validation Design
 
 ## Purpose
 
@@ -6,9 +6,10 @@ Strengthen Asterism's existing skill package controls without replacing its
 content-first layout, `skills` CLI distribution, structural validator, Nexus
 behavioral tests, CI, licensing, or third-party notices.
 
-This change makes every maintained skill explicitly user-invoked in both Codex
-and Claude Code, adds Codex-facing skill metadata, removes redundant trigger
-language from human-facing descriptions, and expands repository validation.
+This change makes invocation policy visible for every maintained skill without
+enforcing one policy across Codex and Claude Code. It also adds Codex-facing
+skill metadata, removes redundant trigger language from human-facing
+descriptions, and expands repository validation.
 
 ## Current Repository State
 
@@ -58,15 +59,15 @@ discoverable `SKILL.md` filename anywhere else in the repository. Such work
 belongs on another branch, in another repository, or under a non-discoverable
 filename.
 
-## Explicit Invocation Contract
+## Invocation Policy Audit
 
-Every public `SKILL.md` must include this Claude Code frontmatter field:
+The validator audits the optional Claude Code frontmatter field:
 
 ```yaml
 disable-model-invocation: true
 ```
 
-Every public skill must also contain `agents/openai.yaml` with this structure:
+It also audits the optional Codex policy field in `agents/openai.yaml`:
 
 ```yaml
 interface:
@@ -78,12 +79,16 @@ policy:
   allow_implicit_invocation: false
 ```
 
+These fields are advisory. The validator reports whether each field is unset,
+`true`, `false`, or non-boolean, but none of those states fails validation.
+Each skill may choose the invocation policy appropriate to its workflow.
+
 The `short_description` length is an Asterism interface convention, not a
 claim about a mandatory Codex platform limit.
 
 The default prompt must be one sentence and contain the exact invocation token
-for its directory, such as `$brainstorming` or `$phase-frames`. The Codex and
-Claude policies must agree: implicit/model invocation is disabled in both.
+for its directory, such as `$brainstorming` or `$phase-frames`. This provides
+an explicit entry point without requiring implicit invocation to be disabled.
 
 Once these machine-readable policies exist, each frontmatter `description`
 must become a concise human-facing summary. It must not repeat `LOAD ONLY`,
@@ -156,7 +161,8 @@ validator must dynamically verify the following.
 - `name` uses the supported skill-name format.
 - The declared name equals the directory name.
 - Declared names are unique.
-- `disable-model-invocation` is exactly `true`.
+- `disable-model-invocation` is included in the advisory invocation-policy
+  audit whether it is unset, `true`, `false`, or non-boolean.
 - Descriptions do not contain the retired trigger-policy wording.
 
 ### Codex Metadata
@@ -167,7 +173,9 @@ validator must dynamically verify the following.
 - `interface.short_description` is a string between 25 and 64 characters.
 - `interface.default_prompt` is a non-empty, one-sentence string.
 - The default prompt contains the exact `$<directory-name>` token.
-- `policy.allow_implicit_invocation` is exactly `false`.
+- `policy.allow_implicit_invocation` is included in the advisory
+  invocation-policy audit whether it is unset, `true`, `false`, or
+  non-boolean.
 - No unknown placement of `agents/openai.yaml` creates ambiguous metadata.
 
 ### Catalog Agreement
@@ -216,7 +224,7 @@ The README must not claim that Asterism is distributed as a Claude plugin.
 Extend `scripts/validate-skills.test.mjs` with focused fixtures for every new
 validator contract. At minimum, cover:
 
-- valid explicit-invocation metadata
+- advisory invocation-policy reporting for present and absent fields
 - malformed frontmatter YAML
 - invalid skill names and directory/name mismatch
 - duplicate names
@@ -224,7 +232,7 @@ validator contract. At minimum, cover:
 - missing interface fields
 - short descriptions below and above the allowed bounds
 - incorrect or missing `$skill-name` token
-- inconsistent invocation policies
+- invocation-policy values that differ between Codex and Claude Code
 - unexpected `SKILL.md` outside the direct-child catalog
 - README/catalog mismatch
 - broken inline, reference-style, image, and declared-asset paths
@@ -283,9 +291,11 @@ automation.
 
 The change is complete when:
 
-- exactly six public direct-child skills remain discoverable
-- all six skills require explicit invocation in Codex and Claude Code metadata
-- all six descriptions are concise and free of redundant trigger-policy text
+- every public direct-child skill remains discoverable
+- every skill's Codex and Claude Code invocation policies appear in the
+  advisory audit without enforcing a shared value
+- all public skill descriptions are concise and free of redundant
+  trigger-policy text
 - each skill has valid, matching `agents/openai.yaml`
 - the validator uses the real YAML parser and covers every new contract
 - direct children, README, and `skills` CLI discovery agree exactly
