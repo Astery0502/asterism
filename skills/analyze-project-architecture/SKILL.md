@@ -1,6 +1,7 @@
 ---
 name: analyze-project-architecture
 description: Analyze a software repository by reconstructing its semantic spine, explaining how concepts become modules and boundaries, tracing contracts, fields, statuses, and feedback across the lifecycle, and mapping those concepts back to files. Use when Codex needs a read-only understanding and broad architectural review of a complete or partial repository, especially for unclear ownership, coupling, duplication, missing steps, misplaced concepts, or overdesign.
+disable-model-invocation: true
 ---
 
 # Analyze Project Architecture
