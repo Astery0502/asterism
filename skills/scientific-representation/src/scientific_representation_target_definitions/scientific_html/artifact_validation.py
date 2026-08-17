@@ -290,6 +290,15 @@ def _validate_structured_check_details(
         or details.get("document_ready_state") not in {"interactive", "complete"}
     ):
         raise FrameworkError("Fresh-load evidence has no successful browser state")
+    if check_id == "primary-view-exposure" and (
+        details.get("scientific_object_visible") is not True
+        or details.get("primary_contrast_visible") is not True
+        or details.get("observable_response_visible") is not True
+        or details.get("primary_elements_co_visible") is not True
+    ):
+        raise FrameworkError(
+            "Primary-view evidence does not expose the declared explanatory elements"
+        )
     if check_id == "no-console-errors" and details.get("console_errors") != []:
         raise FrameworkError("No-console-errors evidence reports browser errors")
     if check_id == "assets-resolve" and (
@@ -380,7 +389,13 @@ def _check_is_applicable(
         for record in plan.get("evidence_applicability", [])
         if isinstance(record, dict)
     }
-    return applicability.get(check_id, True)
+    if check_id in applicability:
+        return applicability[check_id]
+    if check_id == "control-causes-expected-state-change":
+        return bool(
+            plan.get("interface", {}).get("controls") or plan.get("interactions")
+        )
+    return True
 
 
 class _HtmlAssetParser(HTMLParser):

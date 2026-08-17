@@ -43,6 +43,51 @@ representation obligations:
 The Agent may revisit earlier links when a proposed observable, contrast, or
 interaction does not discriminate the intended scientific mechanism.
 
+## Explanatory outcome
+
+Representation inquiry starts from a change in researcher capability, not an
+inventory of page elements. The accepted package states what a researcher
+should be able to explain, predict, distinguish, or audit after using the
+representation. A list of quantities, controls, plots, or formulas is not by
+itself a researcher capability.
+
+The Agent identifies the smallest explanatory chain needed to produce that
+capability:
+
+```text
+scientific object or state -> mechanism or transformation -> observable consequence
+```
+
+The chain need not be spatial or sequential, but its relationships must remain
+recognizable in the requirements. When the scientific account concerns an
+interface, propagation, balance, decomposition, hierarchy, or evolution, the
+requirements preserve that organizing structure instead of reducing it to a
+collection of readouts.
+
+An explanatory bridge is part of the representation meaning, not explanatory
+prose added after the observables have been chosen. It connects what the
+researcher manipulates or compares to why the observed response follows from
+the accepted theory.
+
+## Contrasts, defaults, and stress cases
+
+A controlled contrast should isolate the intended mechanism as far as the
+scientific problem permits. When several quantities vary together, the package
+states why their joint variation remains interpretable or supplies a second
+contrast that separates the competing causes.
+
+Defaults and named anchors have explanatory roles:
+
+- the default should normally expose the representative structure needed to
+  enter the question;
+- limiting, degenerate, singular, or failure states should normally be named
+  stress cases rather than accidental entry states; and
+- a special state may be the default only when the presentation question is
+  specifically about that state and its role is made explicit.
+
+The requirements state the rationale for a consequential default or anchor,
+not only its numerical value.
+
 ## Quantity meaning
 
 Every quantitative visual or interactive channel must remain locally
@@ -77,7 +122,9 @@ content of a hypothesis.
 The module is complete when the presentation question, theory anchors,
 researcher capabilities, controlled contrasts, observables, expected
 signatures, explanatory bridges, interaction meanings, warrants, limits, and
-review probes form one coherent target-neutral package.
+review probes form one coherent target-neutral package. The package must make
+clear how its observables and interactions support the declared researcher
+capability; mechanically displaying every named quantity is not sufficient.
 
 ## Evaluation basis
 
@@ -85,9 +132,17 @@ review probes form one coherent target-neutral package.
 - usefulness for the presentation question;
 - discriminating power of the controlled contrast;
 - clarity of observable and expected signature;
+- coherence of the object-mechanism-consequence chain;
+- explanatory fitness of defaults and stress cases;
 - local interpretability of quantities and interactions;
 - explicit warrant and limits;
 - reviewability.
+
+Review probes include at least one probe of explanatory or predictive use when
+the presentation question asks for understanding. Such a probe asks whether
+the representation enables the declared researcher capability; it is distinct
+from checking numerical correctness or confirming that a control updates a
+view.
 
 ## Non-authority
 

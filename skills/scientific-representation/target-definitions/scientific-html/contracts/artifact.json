@@ -45,24 +45,25 @@
   "mechanical_checks": {
     "scientific_computation": ["identities-or-residuals", "invariants", "boundary-or-initial-conditions", "declared-tolerances"],
     "interaction": ["bounds", "steps", "defaults", "named-anchors", "linked-view-updates", "invalid-state-handling"],
-    "browser": ["fresh-load", "no-console-errors", "control-causes-expected-state-change", "offline-network-block-when-declared", "review-screenshot"],
+    "browser": ["primary-view-exposure", "fresh-load", "no-console-errors", "control-causes-expected-state-change", "offline-network-block-when-declared", "review-screenshot"],
     "artifact": ["entry-point-resolves", "assets-resolve", "manifest-paths-resolve", "dependency-and-license-provenance"]
   },
   "verification_levels": {
     "fast": {
       "scientific_computation": ["identities-or-residuals"],
       "interaction": [],
-      "browser": ["fresh-load", "no-console-errors", "control-causes-expected-state-change"],
+      "browser": ["primary-view-exposure", "fresh-load", "no-console-errors", "control-causes-expected-state-change"],
       "artifact": ["entry-point-resolves", "manifest-paths-resolve"]
     },
     "full": {
       "scientific_computation": ["identities-or-residuals", "invariants", "boundary-or-initial-conditions", "declared-tolerances"],
       "interaction": ["bounds", "steps", "defaults", "named-anchors", "linked-view-updates", "invalid-state-handling"],
-      "browser": ["fresh-load", "no-console-errors", "control-causes-expected-state-change", "offline-network-block-when-declared", "review-screenshot"],
+      "browser": ["primary-view-exposure", "fresh-load", "no-console-errors", "control-causes-expected-state-change", "offline-network-block-when-declared", "review-screenshot"],
       "artifact": ["entry-point-resolves", "assets-resolve", "manifest-paths-resolve", "dependency-and-license-provenance"]
     }
   },
   "structured_check_details": {
+    "primary-view-exposure": ["viewport", "scientific_object_visible", "primary_contrast_visible", "observable_response_visible", "primary_elements_co_visible"],
     "identities-or-residuals": ["sampling_ref", "tolerance_ref", "measured_value", "norm", "reference_method"],
     "invariants": ["sampling_ref", "tolerance_ref", "measured_value", "norm", "reference_method"],
     "boundary-or-initial-conditions": ["sampling_ref", "tolerance_ref", "measured_value", "norm", "reference_method"],

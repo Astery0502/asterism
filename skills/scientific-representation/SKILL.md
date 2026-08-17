@@ -37,6 +37,11 @@ application, evidence, and review records required for inspectability, but they
 are parts of one final delivery—not separate Agent responses or interactive
 stage checkpoints.
 
+Continuous execution is not one-pass execution. If scientific review requests
+revision, return the concern to its owning module, regenerate affected
+downstream records and artifacts, and review the revised work product before
+delivery.
+
 Do not ask the user to provide Python module/class implementations for Agent
 roles. Complete the lifecycle without intermediate user-facing checkpoints.
 Use the project's canonical records and validators without copying their

@@ -18,7 +18,7 @@
       "required": ["status", "plan_contract_id", "pass"]
     }
   },
-  "completion": "Every pivotal requirement is covered, conditional, or explicitly unmet and the selected target-native decisions are inspectable.",
+  "completion": "Every pivotal requirement is covered, conditional, or explicitly unmet; the selected target-native decisions are inspectable; and the visual and interaction grammar keeps the accepted explanatory relationships attainable.",
   "non_authority": [
     "does not rewrite scientific claims or limits",
     "does not remove inconvenient representation requirements",

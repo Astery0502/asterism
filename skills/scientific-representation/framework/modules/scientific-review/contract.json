@@ -39,7 +39,7 @@
   },
   "judgments": ["accepted", "revision_requested", "inconclusive"],
   "admission": "ApplicationExecutionRecord.execution_status must be completed; mechanical conformance may be passed or failed.",
-  "completion": "The review judgment, basis, important limits, reviewed lineage, and module-specific feedback are explicit.",
+  "completion": "The review judgment, basis, important limits, reviewed lineage, module-specific feedback, and attainment or failure of the declared researcher capability are explicit.",
   "non_authority": [
     "does not silently modify accepted upstream artifacts",
     "does not infer scientific validity from mechanical success"

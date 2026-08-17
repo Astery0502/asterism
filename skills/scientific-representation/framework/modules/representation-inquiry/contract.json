@@ -35,13 +35,16 @@
   "required_semantics": [
     "presentation question",
     "theory anchor",
-    "researcher capability",
+    "researcher capability stated as an explanatory, predictive, discriminating, or auditing outcome",
+    "scientific object or state, mechanism or transformation, and observable consequence",
     "controlled contrast and held-fixed conditions",
+    "representative default and named stress-case rationale where applicable",
     "observable and expected signature",
     "explanatory bridge",
     "interaction contract",
     "warrant and limits",
-    "review probe"
+    "scientific correctness probe",
+    "explanatory or predictive use probe when the presentation question asks for understanding"
   ],
   "completion": "The package states what a representation must mean and permit without selecting a target-native implementation.",
   "non_authority": [

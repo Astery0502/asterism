@@ -67,6 +67,34 @@ visual grammar, source organization, numerical technique, and interaction
 design according to the case. A new capability profile can be added when a
 different implementation is a better fit.
 
+## Translate explanatory structure
+
+Choose a visual grammar that matches the accepted scientific object. Preserve
+spatial, temporal, causal, comparative, hierarchical, or decompositional
+structure when that structure performs explanatory work. Quantitative charts
+and readouts may support the primary representation, but they should not
+replace a scientifically important relationship merely because they are easy
+to implement.
+
+Record a distinct scientific role for each major view in the native plan. If
+two views encode nearly the same quantity, state the additional comparison or
+diagnostic supplied by the second; otherwise combine or remove it.
+
+Plan the entry experience as part of target translation:
+
+- the primary scientific object, main contrast, and observable response should
+  be identifiable without reconstructing them from distant sections;
+- consequential controls and their primary response should be simultaneously
+  visible when the target and viewport reasonably permit it;
+- a changing view should retain enough reference, difference, direction, or
+  highlighting for the change to be perceived rather than remembered; and
+- the target-native default should enact the accepted default rationale, while
+  named stress cases should remain deliberate destinations.
+
+These decisions express accepted representation meaning in HTML. They do not
+authorize target realization to invent a new scientific claim or researcher
+capability.
+
 ## Preserve quantity meaning
 
 The target-neutral quantity meanings are owned by
@@ -82,10 +110,12 @@ accepted meaning.
 2. Check the pivotal identity, residual, or comparison on representative
    states.
 3. Build the interaction state and views around the presentation question.
-4. Confirm that axes, color scales, controls, readouts, and hover values retain
+4. Inspect the first useful viewport and one consequential interaction for a
+   continuous control-to-response explanation.
+5. Confirm that axes, color scales, controls, readouts, and hover values retain
    the accepted quantity meanings.
-5. Package the selected HTML topology and write `application-manifest.json`.
-6. Open the result in a real browser and record the selected evidence level.
+6. Package the selected HTML topology and write `application-manifest.json`.
+7. Open the result in a real browser and record the selected evidence level.
 
 For a build-time product, Python may precompute validated states and browser
 code may select among them. For a live-computation product, keep the numerical
@@ -97,17 +127,29 @@ Scientific HTML products.
 The default verification level is `fast`. It asks for:
 
 - one pivotal numerical identity or residual;
+- one primary-view exposure check, confirming that the scientific object, main
+  contrast, and observable response are present together in the first useful
+  viewport;
 - a fresh browser load with a clean console;
 - one interaction that changes the intended observable when controls are present;
 - a resolvable entry point and manifest inventory.
+
+Use `fast` while developing the representation direction. It still requires
+the accepted scientific meaning and boundaries; it reduces evidence breadth,
+not scientific responsibility. Revise target realization when the primary
+view does not expose the declared explanatory elements. Whether a fresh reader
+can understand their relationship remains a scientific-review judgment.
 
 Use `verification.level: full` when promoting a durable reference, when the
 requirements call for exact anchors or offline closure, or when broader risk
 justifies it. Full evidence may cover bounds, defaults, linked views, invalid
 states, screenshots, invariants, boundary conditions, assets, and dependency
-provenance.
+provenance. It also requires reproducible numerical and browser recipes in the
+target plan; `fast` may record evidence without packaging those recipes.
 
 Set `verification.level: full` explicitly for a full reference-product record.
+`full` builds on the same work product after its explanatory direction is
+stable; it should not restart scientific inquiry merely to broaden evidence.
 
 ## Result boundary
 
